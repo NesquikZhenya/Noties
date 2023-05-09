@@ -15,14 +15,14 @@
 		5277C7682A0970E400E11443 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5277C7662A0970E400E11443 /* LaunchScreen.storyboard */; };
 		5277C78C2A0A386E00E11443 /* NotesScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C78B2A0A386E00E11443 /* NotesScreenViewController.swift */; };
 		5277C78E2A0A388100E11443 /* NotesScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C78D2A0A388100E11443 /* NotesScreenView.swift */; };
-		5277C7902A0A39E100E11443 /* ViewSetuping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C78F2A0A39E100E11443 /* ViewSetuping.swift */; };
 		5277C7942A0A461E00E11443 /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C7932A0A461E00E11443 /* NotesTableViewCell.swift */; };
 		5277C7962A0A712800E11443 /* NotesScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C7952A0A712800E11443 /* NotesScreenViewModel.swift */; };
 		5277C7982A0A719D00E11443 /* NotesDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C7972A0A719D00E11443 /* NotesDataStorage.swift */; };
 		5277C79A2A0A720700E11443 /* NotesDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C7992A0A720700E11443 /* NotesDataManager.swift */; };
-		5277C79C2A0A72EA00E11443 /* NoteDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C79B2A0A72EA00E11443 /* NoteDataModel.swift */; };
 		5277C79F2A0A7A7500E11443 /* AppDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C79E2A0A7A7500E11443 /* AppDataController.swift */; };
 		52CB3CBE2A0A900900C4F5D3 /* NotiesTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CBD2A0A900900C4F5D3 /* NotiesTabBarController.swift */; };
+		52CB3CC32A0A923D00C4F5D3 /* ViewSetuping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CC22A0A923D00C4F5D3 /* ViewSetuping.swift */; };
+		52CB3CC52A0A925200C4F5D3 /* NoteDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CC42A0A925200C4F5D3 /* NoteDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,14 +36,14 @@
 		5277C7692A0970E400E11443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5277C78B2A0A386E00E11443 /* NotesScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesScreenViewController.swift; sourceTree = "<group>"; };
 		5277C78D2A0A388100E11443 /* NotesScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesScreenView.swift; sourceTree = "<group>"; };
-		5277C78F2A0A39E100E11443 /* ViewSetuping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewSetuping.swift; path = Noties/NotesScreen/NotesScreenView/ViewSetuping.swift; sourceTree = SOURCE_ROOT; };
 		5277C7932A0A461E00E11443 /* NotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewCell.swift; sourceTree = "<group>"; };
 		5277C7952A0A712800E11443 /* NotesScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesScreenViewModel.swift; sourceTree = "<group>"; };
 		5277C7972A0A719D00E11443 /* NotesDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotesDataStorage.swift; path = Noties/Global/CoreData/NotesDataStorage.swift; sourceTree = SOURCE_ROOT; };
 		5277C7992A0A720700E11443 /* NotesDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesDataManager.swift; sourceTree = "<group>"; };
-		5277C79B2A0A72EA00E11443 /* NoteDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoteDataModel.swift; path = Noties/NotesScreen/NotesScreenDataModel/NoteDataModel.swift; sourceTree = SOURCE_ROOT; };
 		5277C79E2A0A7A7500E11443 /* AppDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataController.swift; sourceTree = "<group>"; };
 		52CB3CBD2A0A900900C4F5D3 /* NotiesTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiesTabBarController.swift; sourceTree = "<group>"; };
+		52CB3CC22A0A923D00C4F5D3 /* ViewSetuping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSetuping.swift; sourceTree = "<group>"; };
+		52CB3CC42A0A925200C4F5D3 /* NoteDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				5277C79D2A0A7A5900E11443 /* CoreData */,
-				5277C78F2A0A39E100E11443 /* ViewSetuping.swift */,
-				5277C79B2A0A72EA00E11443 /* NoteDataModel.swift */,
+				52CB3CC22A0A923D00C4F5D3 /* ViewSetuping.swift */,
+				52CB3CC42A0A925200C4F5D3 /* NoteDataModel.swift */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -250,15 +250,15 @@
 				5277C75D2A0970E200E11443 /* ViewController.swift in Sources */,
 				5277C7632A0970E200E11443 /* Noties.xcdatamodeld in Sources */,
 				5277C7592A0970E200E11443 /* AppDelegate.swift in Sources */,
-				5277C79C2A0A72EA00E11443 /* NoteDataModel.swift in Sources */,
 				5277C79A2A0A720700E11443 /* NotesDataManager.swift in Sources */,
 				52CB3CBE2A0A900900C4F5D3 /* NotiesTabBarController.swift in Sources */,
 				5277C7962A0A712800E11443 /* NotesScreenViewModel.swift in Sources */,
 				5277C78C2A0A386E00E11443 /* NotesScreenViewController.swift in Sources */,
-				5277C7902A0A39E100E11443 /* ViewSetuping.swift in Sources */,
 				5277C78E2A0A388100E11443 /* NotesScreenView.swift in Sources */,
 				5277C7982A0A719D00E11443 /* NotesDataStorage.swift in Sources */,
 				5277C75B2A0970E200E11443 /* SceneDelegate.swift in Sources */,
+				52CB3CC32A0A923D00C4F5D3 /* ViewSetuping.swift in Sources */,
+				52CB3CC52A0A925200C4F5D3 /* NoteDataModel.swift in Sources */,
 				5277C7942A0A461E00E11443 /* NotesTableViewCell.swift in Sources */,
 				5277C79F2A0A7A7500E11443 /* AppDataController.swift in Sources */,
 			);
