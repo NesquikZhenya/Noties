@@ -16,13 +16,13 @@
 		5277C78C2A0A386E00E11443 /* NotesScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C78B2A0A386E00E11443 /* NotesScreenViewController.swift */; };
 		5277C78E2A0A388100E11443 /* NotesScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C78D2A0A388100E11443 /* NotesScreenView.swift */; };
 		5277C7902A0A39E100E11443 /* ViewSetuping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C78F2A0A39E100E11443 /* ViewSetuping.swift */; };
-		5277C7922A0A3B9900E11443 /* NotiesTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C7912A0A3B9900E11443 /* NotiesTabBarController.swift */; };
 		5277C7942A0A461E00E11443 /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C7932A0A461E00E11443 /* NotesTableViewCell.swift */; };
 		5277C7962A0A712800E11443 /* NotesScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C7952A0A712800E11443 /* NotesScreenViewModel.swift */; };
 		5277C7982A0A719D00E11443 /* NotesDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C7972A0A719D00E11443 /* NotesDataStorage.swift */; };
 		5277C79A2A0A720700E11443 /* NotesDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C7992A0A720700E11443 /* NotesDataManager.swift */; };
 		5277C79C2A0A72EA00E11443 /* NoteDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C79B2A0A72EA00E11443 /* NoteDataModel.swift */; };
 		5277C79F2A0A7A7500E11443 /* AppDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C79E2A0A7A7500E11443 /* AppDataController.swift */; };
+		52CB3CBE2A0A900900C4F5D3 /* NotiesTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CBD2A0A900900C4F5D3 /* NotiesTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,13 +37,13 @@
 		5277C78B2A0A386E00E11443 /* NotesScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesScreenViewController.swift; sourceTree = "<group>"; };
 		5277C78D2A0A388100E11443 /* NotesScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesScreenView.swift; sourceTree = "<group>"; };
 		5277C78F2A0A39E100E11443 /* ViewSetuping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewSetuping.swift; path = Noties/NotesScreen/NotesScreenView/ViewSetuping.swift; sourceTree = SOURCE_ROOT; };
-		5277C7912A0A3B9900E11443 /* NotiesTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotiesTabBarController.swift; path = Noties/NotesScreen/NotesScreenView/NotiesTabBarController.swift; sourceTree = SOURCE_ROOT; };
 		5277C7932A0A461E00E11443 /* NotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewCell.swift; sourceTree = "<group>"; };
 		5277C7952A0A712800E11443 /* NotesScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesScreenViewModel.swift; sourceTree = "<group>"; };
 		5277C7972A0A719D00E11443 /* NotesDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotesDataStorage.swift; path = Noties/Global/CoreData/NotesDataStorage.swift; sourceTree = SOURCE_ROOT; };
 		5277C7992A0A720700E11443 /* NotesDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesDataManager.swift; sourceTree = "<group>"; };
 		5277C79B2A0A72EA00E11443 /* NoteDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoteDataModel.swift; path = Noties/NotesScreen/NotesScreenDataModel/NoteDataModel.swift; sourceTree = SOURCE_ROOT; };
 		5277C79E2A0A7A7500E11443 /* AppDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataController.swift; sourceTree = "<group>"; };
+		52CB3CBD2A0A900900C4F5D3 /* NotiesTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiesTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,11 +77,11 @@
 			isa = PBXGroup;
 			children = (
 				5277C77A2A097DEC00E11443 /* Global */,
-				5277C76F2A0977C000E11443 /* TabBar */,
-				5277C7732A09783B00E11443 /* LoginScreen */,
+				52CB3CBC2A0A8FE900C4F5D3 /* TabBar */,
+				52CB3CBF2A0A901E00C4F5D3 /* LoginScreen */,
 				5277C7722A09780000E11443 /* NotesScreen */,
-				5277C7712A0977ED00E11443 /* MapsScreen */,
-				5277C7742A09786300E11443 /* ProfileScren */,
+				52CB3CC02A0A903500C4F5D3 /* MapsScreen */,
+				52CB3CC12A0A903F00C4F5D3 /* ProfileScreen */,
 				5277C7582A0970E200E11443 /* AppDelegate.swift */,
 				5277C75A2A0970E200E11443 /* SceneDelegate.swift */,
 				5277C75C2A0970E200E11443 /* ViewController.swift */,
@@ -92,21 +92,6 @@
 			path = Noties;
 			sourceTree = "<group>";
 		};
-		5277C76F2A0977C000E11443 /* TabBar */ = {
-			isa = PBXGroup;
-			children = (
-				5277C7912A0A3B9900E11443 /* NotiesTabBarController.swift */,
-			);
-			path = TabBar;
-			sourceTree = "<group>";
-		};
-		5277C7712A0977ED00E11443 /* MapsScreen */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MapsScreen;
-			sourceTree = "<group>";
-		};
 		5277C7722A09780000E11443 /* NotesScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,20 +100,6 @@
 				5277C78A2A0A383900E11443 /* NotesScreenView */,
 			);
 			path = NotesScreen;
-			sourceTree = "<group>";
-		};
-		5277C7732A09783B00E11443 /* LoginScreen */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = LoginScreen;
-			sourceTree = "<group>";
-		};
-		5277C7742A09786300E11443 /* ProfileScren */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ProfileScren;
 			sourceTree = "<group>";
 		};
 		5277C77A2A097DEC00E11443 /* Global */ = {
@@ -175,6 +146,35 @@
 				5277C7972A0A719D00E11443 /* NotesDataStorage.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		52CB3CBC2A0A8FE900C4F5D3 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				52CB3CBD2A0A900900C4F5D3 /* NotiesTabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		52CB3CBF2A0A901E00C4F5D3 /* LoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LoginScreen;
+			sourceTree = "<group>";
+		};
+		52CB3CC02A0A903500C4F5D3 /* MapsScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MapsScreen;
+			sourceTree = "<group>";
+		};
+		52CB3CC12A0A903F00C4F5D3 /* ProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ProfileScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,11 +248,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5277C75D2A0970E200E11443 /* ViewController.swift in Sources */,
-				5277C7922A0A3B9900E11443 /* NotiesTabBarController.swift in Sources */,
 				5277C7632A0970E200E11443 /* Noties.xcdatamodeld in Sources */,
 				5277C7592A0970E200E11443 /* AppDelegate.swift in Sources */,
 				5277C79C2A0A72EA00E11443 /* NoteDataModel.swift in Sources */,
 				5277C79A2A0A720700E11443 /* NotesDataManager.swift in Sources */,
+				52CB3CBE2A0A900900C4F5D3 /* NotiesTabBarController.swift in Sources */,
 				5277C7962A0A712800E11443 /* NotesScreenViewModel.swift in Sources */,
 				5277C78C2A0A386E00E11443 /* NotesScreenViewController.swift in Sources */,
 				5277C7902A0A39E100E11443 /* ViewSetuping.swift in Sources */,
