@@ -13,6 +13,9 @@
 		5277C7632A0970E200E11443 /* Noties.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5277C7612A0970E200E11443 /* Noties.xcdatamodeld */; };
 		5277C7652A0970E400E11443 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5277C7642A0970E400E11443 /* Assets.xcassets */; };
 		5277C7682A0970E400E11443 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5277C7662A0970E400E11443 /* LaunchScreen.storyboard */; };
+		5277C78C2A0A386E00E11443 /* NotesScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C78B2A0A386E00E11443 /* NotesScreenViewController.swift */; };
+		5277C78E2A0A388100E11443 /* NotesScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C78D2A0A388100E11443 /* NotesScreenView.swift */; };
+		5277C7902A0A39E100E11443 /* ViewSetuping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C78F2A0A39E100E11443 /* ViewSetuping.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		5277C7642A0970E400E11443 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5277C7672A0970E400E11443 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5277C7692A0970E400E11443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5277C78B2A0A386E00E11443 /* NotesScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesScreenViewController.swift; sourceTree = "<group>"; };
+		5277C78D2A0A388100E11443 /* NotesScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesScreenView.swift; sourceTree = "<group>"; };
+		5277C78F2A0A39E100E11443 /* ViewSetuping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewSetuping.swift; path = Noties/NotesScreen/NotesScreenView/ViewSetuping.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +96,9 @@
 		5277C7722A09780000E11443 /* NotesScreen */ = {
 			isa = PBXGroup;
 			children = (
+				5277C7882A0A37C600E11443 /* NotesScreenDataModel */,
+				5277C7892A0A37D800E11443 /* NotesScreenViewModel */,
+				5277C78A2A0A383900E11443 /* NotesScreenView */,
 			);
 			path = NotesScreen;
 			sourceTree = "<group>";
@@ -111,8 +120,32 @@
 		5277C77A2A097DEC00E11443 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				5277C78F2A0A39E100E11443 /* ViewSetuping.swift */,
 			);
 			path = Global;
+			sourceTree = "<group>";
+		};
+		5277C7882A0A37C600E11443 /* NotesScreenDataModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NotesScreenDataModel;
+			sourceTree = "<group>";
+		};
+		5277C7892A0A37D800E11443 /* NotesScreenViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NotesScreenViewModel;
+			sourceTree = "<group>";
+		};
+		5277C78A2A0A383900E11443 /* NotesScreenView */ = {
+			isa = PBXGroup;
+			children = (
+				5277C78B2A0A386E00E11443 /* NotesScreenViewController.swift */,
+				5277C78D2A0A388100E11443 /* NotesScreenView.swift */,
+			);
+			path = NotesScreenView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +221,9 @@
 				5277C75D2A0970E200E11443 /* ViewController.swift in Sources */,
 				5277C7632A0970E200E11443 /* Noties.xcdatamodeld in Sources */,
 				5277C7592A0970E200E11443 /* AppDelegate.swift in Sources */,
+				5277C78C2A0A386E00E11443 /* NotesScreenViewController.swift in Sources */,
+				5277C7902A0A39E100E11443 /* ViewSetuping.swift in Sources */,
+				5277C78E2A0A388100E11443 /* NotesScreenView.swift in Sources */,
 				5277C75B2A0970E200E11443 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
