@@ -11,6 +11,10 @@ protocol NotesScreenViewModelListening: AnyObject {
     func initializeNotesScreenView(notes: [Note])
 }
 
+protocol NotesScreenViewListening: AnyObject {
+    func addNoteButtonDidTap()
+}
+
 final class NotesScreenViewController: UIViewController {
 
     private let notesScreenViewModel = NotesScreenViewModel()
@@ -18,9 +22,8 @@ final class NotesScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Here's your notes"
-        self.navigationController?.title = "Notes"
         view = notesScreenView
+        notesScreenView.delegate = self
         notesScreenViewModel.delegate = self
         notesScreenViewModel.getNotes()
     }
@@ -34,3 +37,10 @@ extension NotesScreenViewController: NotesScreenViewModelListening {
         }
     }
 }
+
+extension NotesScreenViewController: NotesScreenViewListening {
+    func addNoteButtonDidTap() {
+        self.tabBarController?.navigationController?.pushViewController(EditNoteScreenViewController(), animated: true)
+    }
+}
+

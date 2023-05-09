@@ -23,6 +23,10 @@
 		52CB3CBE2A0A900900C4F5D3 /* NotiesTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CBD2A0A900900C4F5D3 /* NotiesTabBarController.swift */; };
 		52CB3CC32A0A923D00C4F5D3 /* ViewSetuping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CC22A0A923D00C4F5D3 /* ViewSetuping.swift */; };
 		52CB3CC52A0A925200C4F5D3 /* NoteDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CC42A0A925200C4F5D3 /* NoteDataModel.swift */; };
+		52CB3CC82A0AA27000C4F5D3 /* EditNoteScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CC72A0AA27000C4F5D3 /* EditNoteScreenViewController.swift */; };
+		52CB3CCA2A0AA28500C4F5D3 /* EditNoteScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CC92A0AA28500C4F5D3 /* EditNoteScreenView.swift */; };
+		52CB3CCD2A0AD22000C4F5D3 /* SelectPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CCC2A0AD22000C4F5D3 /* SelectPhotoViewController.swift */; };
+		52CB3CCF2A0AD77700C4F5D3 /* SelectPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CCE2A0AD77700C4F5D3 /* SelectPhotoCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +48,10 @@
 		52CB3CBD2A0A900900C4F5D3 /* NotiesTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiesTabBarController.swift; sourceTree = "<group>"; };
 		52CB3CC22A0A923D00C4F5D3 /* ViewSetuping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSetuping.swift; sourceTree = "<group>"; };
 		52CB3CC42A0A925200C4F5D3 /* NoteDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDataModel.swift; sourceTree = "<group>"; };
+		52CB3CC72A0AA27000C4F5D3 /* EditNoteScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteScreenViewController.swift; sourceTree = "<group>"; };
+		52CB3CC92A0AA28500C4F5D3 /* EditNoteScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteScreenView.swift; sourceTree = "<group>"; };
+		52CB3CCC2A0AD22000C4F5D3 /* SelectPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPhotoViewController.swift; sourceTree = "<group>"; };
+		52CB3CCE2A0AD77700C4F5D3 /* SelectPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +88,8 @@
 				52CB3CBC2A0A8FE900C4F5D3 /* TabBar */,
 				52CB3CBF2A0A901E00C4F5D3 /* LoginScreen */,
 				5277C7722A09780000E11443 /* NotesScreen */,
+				52CB3CC62A0AA1DE00C4F5D3 /* EditNoteScreen */,
+				52CB3CCB2A0AD1FF00C4F5D3 /* SelectPhotoScreen */,
 				52CB3CC02A0A903500C4F5D3 /* MapsScreen */,
 				52CB3CC12A0A903F00C4F5D3 /* ProfileScreen */,
 				5277C7582A0970E200E11443 /* AppDelegate.swift */,
@@ -177,6 +187,24 @@
 			path = ProfileScreen;
 			sourceTree = "<group>";
 		};
+		52CB3CC62A0AA1DE00C4F5D3 /* EditNoteScreen */ = {
+			isa = PBXGroup;
+			children = (
+				52CB3CC72A0AA27000C4F5D3 /* EditNoteScreenViewController.swift */,
+				52CB3CC92A0AA28500C4F5D3 /* EditNoteScreenView.swift */,
+			);
+			path = EditNoteScreen;
+			sourceTree = "<group>";
+		};
+		52CB3CCB2A0AD1FF00C4F5D3 /* SelectPhotoScreen */ = {
+			isa = PBXGroup;
+			children = (
+				52CB3CCC2A0AD22000C4F5D3 /* SelectPhotoViewController.swift */,
+				52CB3CCE2A0AD77700C4F5D3 /* SelectPhotoCollectionViewCell.swift */,
+			);
+			path = SelectPhotoScreen;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -248,14 +276,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				5277C75D2A0970E200E11443 /* ViewController.swift in Sources */,
+				52CB3CCD2A0AD22000C4F5D3 /* SelectPhotoViewController.swift in Sources */,
 				5277C7632A0970E200E11443 /* Noties.xcdatamodeld in Sources */,
 				5277C7592A0970E200E11443 /* AppDelegate.swift in Sources */,
 				5277C79A2A0A720700E11443 /* NotesDataManager.swift in Sources */,
 				52CB3CBE2A0A900900C4F5D3 /* NotiesTabBarController.swift in Sources */,
+				52CB3CC82A0AA27000C4F5D3 /* EditNoteScreenViewController.swift in Sources */,
 				5277C7962A0A712800E11443 /* NotesScreenViewModel.swift in Sources */,
 				5277C78C2A0A386E00E11443 /* NotesScreenViewController.swift in Sources */,
+				52CB3CCF2A0AD77700C4F5D3 /* SelectPhotoCollectionViewCell.swift in Sources */,
 				5277C78E2A0A388100E11443 /* NotesScreenView.swift in Sources */,
 				5277C7982A0A719D00E11443 /* NotesDataStorage.swift in Sources */,
+				52CB3CCA2A0AA28500C4F5D3 /* EditNoteScreenView.swift in Sources */,
 				5277C75B2A0970E200E11443 /* SceneDelegate.swift in Sources */,
 				52CB3CC32A0A923D00C4F5D3 /* ViewSetuping.swift in Sources */,
 				52CB3CC52A0A925200C4F5D3 /* NoteDataModel.swift in Sources */,
