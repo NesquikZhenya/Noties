@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NotesScreenViewController: UIViewController {
+final class NotesScreenViewController: UIViewController {
 
     private let notesScreenView = NotesScreenView()
     

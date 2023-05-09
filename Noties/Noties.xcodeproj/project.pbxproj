@@ -16,6 +16,7 @@
 		5277C78C2A0A386E00E11443 /* NotesScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C78B2A0A386E00E11443 /* NotesScreenViewController.swift */; };
 		5277C78E2A0A388100E11443 /* NotesScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C78D2A0A388100E11443 /* NotesScreenView.swift */; };
 		5277C7902A0A39E100E11443 /* ViewSetuping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C78F2A0A39E100E11443 /* ViewSetuping.swift */; };
+		5277C7922A0A3B9900E11443 /* NotiesTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C7912A0A3B9900E11443 /* NotiesTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		5277C78B2A0A386E00E11443 /* NotesScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesScreenViewController.swift; sourceTree = "<group>"; };
 		5277C78D2A0A388100E11443 /* NotesScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesScreenView.swift; sourceTree = "<group>"; };
 		5277C78F2A0A39E100E11443 /* ViewSetuping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewSetuping.swift; path = Noties/NotesScreen/NotesScreenView/ViewSetuping.swift; sourceTree = SOURCE_ROOT; };
+		5277C7912A0A3B9900E11443 /* NotiesTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotiesTabBarController.swift; path = Noties/NotesScreen/NotesScreenView/NotiesTabBarController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 		5277C76F2A0977C000E11443 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				5277C7912A0A3B9900E11443 /* NotiesTabBarController.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5277C75D2A0970E200E11443 /* ViewController.swift in Sources */,
+				5277C7922A0A3B9900E11443 /* NotiesTabBarController.swift in Sources */,
 				5277C7632A0970E200E11443 /* Noties.xcdatamodeld in Sources */,
 				5277C7592A0970E200E11443 /* AppDelegate.swift in Sources */,
 				5277C78C2A0A386E00E11443 /* NotesScreenViewController.swift in Sources */,
