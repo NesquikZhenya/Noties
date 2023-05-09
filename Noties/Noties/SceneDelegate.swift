@@ -19,9 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         let notiesTabBar = NotiesTabBarController()
-        let notiesNavigationController = UINavigationController(rootViewController: notiesTabBar)
         window?.windowScene = windowScene
-        window?.rootViewController = notiesNavigationController
+        window?.rootViewController = notiesTabBar
         window?.makeKeyAndVisible()
         
     }

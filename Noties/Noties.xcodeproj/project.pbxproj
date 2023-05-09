@@ -17,6 +17,12 @@
 		5277C78E2A0A388100E11443 /* NotesScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C78D2A0A388100E11443 /* NotesScreenView.swift */; };
 		5277C7902A0A39E100E11443 /* ViewSetuping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C78F2A0A39E100E11443 /* ViewSetuping.swift */; };
 		5277C7922A0A3B9900E11443 /* NotiesTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C7912A0A3B9900E11443 /* NotiesTabBarController.swift */; };
+		5277C7942A0A461E00E11443 /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C7932A0A461E00E11443 /* NotesTableViewCell.swift */; };
+		5277C7962A0A712800E11443 /* NotesScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C7952A0A712800E11443 /* NotesScreenViewModel.swift */; };
+		5277C7982A0A719D00E11443 /* NotesDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C7972A0A719D00E11443 /* NotesDataStorage.swift */; };
+		5277C79A2A0A720700E11443 /* NotesDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C7992A0A720700E11443 /* NotesDataManager.swift */; };
+		5277C79C2A0A72EA00E11443 /* NoteDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C79B2A0A72EA00E11443 /* NoteDataModel.swift */; };
+		5277C79F2A0A7A7500E11443 /* AppDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277C79E2A0A7A7500E11443 /* AppDataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +38,12 @@
 		5277C78D2A0A388100E11443 /* NotesScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesScreenView.swift; sourceTree = "<group>"; };
 		5277C78F2A0A39E100E11443 /* ViewSetuping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewSetuping.swift; path = Noties/NotesScreen/NotesScreenView/ViewSetuping.swift; sourceTree = SOURCE_ROOT; };
 		5277C7912A0A3B9900E11443 /* NotiesTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotiesTabBarController.swift; path = Noties/NotesScreen/NotesScreenView/NotiesTabBarController.swift; sourceTree = SOURCE_ROOT; };
+		5277C7932A0A461E00E11443 /* NotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewCell.swift; sourceTree = "<group>"; };
+		5277C7952A0A712800E11443 /* NotesScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesScreenViewModel.swift; sourceTree = "<group>"; };
+		5277C7972A0A719D00E11443 /* NotesDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotesDataStorage.swift; path = Noties/Global/CoreData/NotesDataStorage.swift; sourceTree = SOURCE_ROOT; };
+		5277C7992A0A720700E11443 /* NotesDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesDataManager.swift; sourceTree = "<group>"; };
+		5277C79B2A0A72EA00E11443 /* NoteDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoteDataModel.swift; path = Noties/NotesScreen/NotesScreenDataModel/NoteDataModel.swift; sourceTree = SOURCE_ROOT; };
+		5277C79E2A0A7A7500E11443 /* AppDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +88,6 @@
 				5277C7642A0970E400E11443 /* Assets.xcassets */,
 				5277C7662A0970E400E11443 /* LaunchScreen.storyboard */,
 				5277C7692A0970E400E11443 /* Info.plist */,
-				5277C7612A0970E200E11443 /* Noties.xcdatamodeld */,
 			);
 			path = Noties;
 			sourceTree = "<group>";
@@ -123,7 +134,9 @@
 		5277C77A2A097DEC00E11443 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				5277C79D2A0A7A5900E11443 /* CoreData */,
 				5277C78F2A0A39E100E11443 /* ViewSetuping.swift */,
+				5277C79B2A0A72EA00E11443 /* NoteDataModel.swift */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -131,6 +144,7 @@
 		5277C7882A0A37C600E11443 /* NotesScreenDataModel */ = {
 			isa = PBXGroup;
 			children = (
+				5277C7992A0A720700E11443 /* NotesDataManager.swift */,
 			);
 			path = NotesScreenDataModel;
 			sourceTree = "<group>";
@@ -138,6 +152,7 @@
 		5277C7892A0A37D800E11443 /* NotesScreenViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				5277C7952A0A712800E11443 /* NotesScreenViewModel.swift */,
 			);
 			path = NotesScreenViewModel;
 			sourceTree = "<group>";
@@ -147,8 +162,19 @@
 			children = (
 				5277C78B2A0A386E00E11443 /* NotesScreenViewController.swift */,
 				5277C78D2A0A388100E11443 /* NotesScreenView.swift */,
+				5277C7932A0A461E00E11443 /* NotesTableViewCell.swift */,
 			);
 			path = NotesScreenView;
+			sourceTree = "<group>";
+		};
+		5277C79D2A0A7A5900E11443 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				5277C7612A0970E200E11443 /* Noties.xcdatamodeld */,
+				5277C79E2A0A7A7500E11443 /* AppDataController.swift */,
+				5277C7972A0A719D00E11443 /* NotesDataStorage.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,10 +251,16 @@
 				5277C7922A0A3B9900E11443 /* NotiesTabBarController.swift in Sources */,
 				5277C7632A0970E200E11443 /* Noties.xcdatamodeld in Sources */,
 				5277C7592A0970E200E11443 /* AppDelegate.swift in Sources */,
+				5277C79C2A0A72EA00E11443 /* NoteDataModel.swift in Sources */,
+				5277C79A2A0A720700E11443 /* NotesDataManager.swift in Sources */,
+				5277C7962A0A712800E11443 /* NotesScreenViewModel.swift in Sources */,
 				5277C78C2A0A386E00E11443 /* NotesScreenViewController.swift in Sources */,
 				5277C7902A0A39E100E11443 /* ViewSetuping.swift in Sources */,
 				5277C78E2A0A388100E11443 /* NotesScreenView.swift in Sources */,
+				5277C7982A0A719D00E11443 /* NotesDataStorage.swift in Sources */,
 				5277C75B2A0970E200E11443 /* SceneDelegate.swift in Sources */,
+				5277C7942A0A461E00E11443 /* NotesTableViewCell.swift in Sources */,
+				5277C79F2A0A7A7500E11443 /* AppDataController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
