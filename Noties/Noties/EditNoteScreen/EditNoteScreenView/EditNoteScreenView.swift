@@ -15,7 +15,8 @@ final class EditNoteScreenView: UIView {
                     title: "No name",
                     text: "Enter the note",
                     picture: UIImage(named: "attach")!,
-                    location: "")
+                    location: "",
+                    date: Date())
     
     private lazy var photoImageView: UIImageView = {
         let imageView = UIImageView()
@@ -105,8 +106,8 @@ extension EditNoteScreenView: ViewSetuping {
     private func configurePhotoImageViewConstraints() {
         [
             photoImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 100),
-            photoImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            photoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            photoImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            photoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             photoImageView.heightAnchor.constraint(equalToConstant: 200)
         ].forEach { $0.isActive = true }
     }
@@ -122,7 +123,7 @@ extension EditNoteScreenView: ViewSetuping {
         [
             mapImageView.topAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: 16),
             mapImageView.leadingAnchor.constraint(greaterThanOrEqualTo: titleTextField.trailingAnchor, constant: 16),
-            mapImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            mapImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
         ].forEach { $0.isActive = true }
     }
     

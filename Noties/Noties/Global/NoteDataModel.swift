@@ -14,4 +14,5 @@ struct Note {
     var text: String
     var picture: UIImage
     var location: String
+    var date: Date
 }

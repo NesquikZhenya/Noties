@@ -20,6 +20,7 @@ struct NotesDataStorage {
             storedNote.text = note.text
             storedNote.picture = note.picture.jpegData(compressionQuality: 1)
             storedNote.location = note.location
+            storedNote.date = note.date
             try! context.save()
         }
     }

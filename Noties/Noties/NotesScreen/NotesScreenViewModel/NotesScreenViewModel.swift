@@ -45,10 +45,11 @@ extension NotesScreenViewModel: NotesDataManaging {
                                 title: $0.title ?? "",
                                 text: $0.text ?? "",
                                 picture: UIImage(data: $0.picture ?? Data())!,
-                                location: $0.location ?? "")
+                                location: $0.location ?? "",
+                                date: $0.date ?? Date())
                 notes.append(note)
             }
-            return notes
+            return notes.sorted(by: { $0.date > $1.date })
 //            return [Note(id: UUID(), title: "Meow", text: "adasdaasd", picture: UIImage(named: "plus")!, location: ""),
 //                    Note(id: UUID(), title: "Purr", text: "", picture: UIImage(named: "attach")!, location: ""),
 //                    Note(id: UUID(), title: "Kiss", text: "123 123 123 \(/n/) 123123", picture: UIImage(named: "profile")!, location: "")
