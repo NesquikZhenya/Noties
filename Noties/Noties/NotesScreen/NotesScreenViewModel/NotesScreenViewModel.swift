@@ -11,7 +11,6 @@ import UIKit
 
 protocol NotesDataManaging: AnyObject {
     func getNotes()
-    func updateNote(note: Note)
 }
 
 final class NotesScreenViewModel {
@@ -19,11 +18,10 @@ final class NotesScreenViewModel {
     weak var delegate: NotesScreenViewModelListening?
     private let notesDataStorage = NotesDataStorage()
     
-    private var notesDataProvider: NotesDataProviding
-    private var notes: [Note] = []
+    private var notesScreenDataManager: NotesDataProviding
 
-    init(notesDataProvider: NotesDataProviding = NotesDataManager()) {
-        self.notesDataProvider = notesDataProvider
+    init(notesDataProvider: NotesDataProviding = NotesScreenDataManager()) {
+        self.notesScreenDataManager = notesDataProvider
     }
     
 }
@@ -38,7 +36,7 @@ extension NotesScreenViewModel: NotesDataManaging {
             self.delegate?.initializeNotesScreenView(notes: transformed(storedNotes: storedNotes))
         }
         
-        notesDataProvider.provideNotesData(provideCompletion: provideNotesCompletion)
+        notesScreenDataManager.provideNotesData(provideCompletion: provideNotesCompletion)
                 
         func transformed(storedNotes: [StoredNote]) -> [Note] {
             var notes: [Note] = []
@@ -50,16 +48,14 @@ extension NotesScreenViewModel: NotesDataManaging {
                                 location: $0.location ?? "")
                 notes.append(note)
             }
-//            return notes
-            return [Note(id: UUID(), title: "Meow", text: "adasdaasd", picture: UIImage(named: "plus")!, location: ""),
-                    Note(id: UUID(), title: "Purr", text: "", picture: UIImage(named: "attach")!, location: ""),
-                    Note(id: UUID(), title: "Kiss", text: "123 123 123 \(/n/) 123123", picture: UIImage(named: "profile")!, location: "")
-            ]
+            return notes
+//            return [Note(id: UUID(), title: "Meow", text: "adasdaasd", picture: UIImage(named: "plus")!, location: ""),
+//                    Note(id: UUID(), title: "Purr", text: "", picture: UIImage(named: "attach")!, location: ""),
+//                    Note(id: UUID(), title: "Kiss", text: "123 123 123 \(/n/) 123123", picture: UIImage(named: "profile")!, location: "")
+//            ]
         }
         
     }
  
-    func updateNote(note: Note) {
-    }
 
 }

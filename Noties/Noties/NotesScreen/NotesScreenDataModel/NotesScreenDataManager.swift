@@ -1,5 +1,5 @@
 //
-//  NotesDataManager.swift
+//  NotesScreenDataManager.swift
 //  Noties
 //
 //  Created by Евгений Михневич on 09.05.2023.
@@ -11,17 +11,13 @@ protocol NotesDataProviding {
     func provideNotesData(provideCompletion: @escaping ([StoredNote])->()?)
 }
 
-protocol NotesDataUpdating {
-    func updateNotesData(updateCompletion: @escaping ([StoredNote])->()?)
-}
-
-struct NotesDataManager {
+struct NotesScreenDataManager {
     
     private let notesDataStorage = NotesDataStorage()
     
 }
 
-extension NotesDataManager: NotesDataProviding, NotesDataUpdating {
+extension NotesScreenDataManager: NotesDataProviding {
     
     func provideNotesData(provideCompletion: @escaping ([StoredNote]) -> ()?) {
         
@@ -30,10 +26,6 @@ extension NotesDataManager: NotesDataProviding, NotesDataUpdating {
         }
         
         notesDataStorage.fetchAll(completion: fetchCompletion)
-    }
-    
-    func updateNotesData(updateCompletion: @escaping ([StoredNote])->()?) {
-        
     }
 
 }

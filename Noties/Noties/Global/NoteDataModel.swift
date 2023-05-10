@@ -10,8 +10,8 @@ import UIKit
 
 struct Note {
     let id: UUID
-    let title: String
-    let text: String
-    let picture: UIImage
-    let location: String
+    var title: String
+    var text: String
+    var picture: UIImage
+    var location: String
 }

@@ -12,7 +12,7 @@ final class AppDataController {
     
     static let shared = AppDataController()
     
-    let container = NSPersistentContainer(name: "Noties")
+    let container = NSPersistentContainer(name: "NotesStorage")
     
     var context: NSManagedObjectContext {
         container.viewContext

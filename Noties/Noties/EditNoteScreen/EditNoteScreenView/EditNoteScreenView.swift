@@ -11,6 +11,11 @@ import PhotosUI
 final class EditNoteScreenView: UIView {
     
     weak var delegate: EditNoteScreenViewListening?
+    var note = Note(id: UUID(),
+                    title: "No name",
+                    text: "Enter the note",
+                    picture: UIImage(named: "attach")!,
+                    location: "")
     
     private lazy var photoImageView: UIImageView = {
         let imageView = UIImageView()
@@ -25,15 +30,24 @@ final class EditNoteScreenView: UIView {
         return imageView
     }()
     
-    private let picker = UIImagePickerController()
-
-    private let titleTextField: UITextField = {
+    lazy var titleTextField: UITextField = {
         let textField = UITextField()
         textField.font = .systemFont(ofSize: 24, weight: .semibold)
         textField.placeholder = "Enter the title"
+        textField.delegate = self
         return textField
     }()
-        
+    
+    private lazy var mapImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "map")
+        imageView.tintColor = UIColor(red: 0.004, green: 0, blue: 0.208, alpha: 1)
+        imageView.isUserInteractionEnabled = true
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(mapImageViewDidTap))
+        imageView.addGestureRecognizer(gesture)
+        return imageView
+    }()
+    
     lazy var descriptionTextView: UITextView = {
         let textView = UITextView()
         textView.font = .systemFont(ofSize: 20, weight: .regular)
@@ -49,7 +63,6 @@ final class EditNoteScreenView: UIView {
         setupConstraints()
         let gesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.addGestureRecognizer(gesture)
-
     }
     
     required init?(coder: NSCoder) {
@@ -70,6 +83,7 @@ extension EditNoteScreenView: ViewSetuping {
         [
             photoImageView,
             titleTextField,
+            mapImageView,
             descriptionTextView,
         ].forEach {self.addSubview($0)}
     }
@@ -77,11 +91,13 @@ extension EditNoteScreenView: ViewSetuping {
     func setupConstraints() {
         configurePhotoImageViewConstraints()
         configureTitleTextFieldConstraints()
+        configureMapImageViewConstraints()
         configureDescriptionTextViewConstraints()
         
         [
             photoImageView,
             titleTextField,
+            mapImageView,
             descriptionTextView,
         ].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
     }
@@ -99,7 +115,14 @@ extension EditNoteScreenView: ViewSetuping {
         [
             titleTextField.topAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: 16),
             titleTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            titleTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+        ].forEach { $0.isActive = true }
+    }
+    
+    private func configureMapImageViewConstraints() {
+        [
+            mapImageView.topAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: 16),
+            mapImageView.leadingAnchor.constraint(greaterThanOrEqualTo: titleTextField.trailingAnchor, constant: 16),
+            mapImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
         ].forEach { $0.isActive = true }
     }
     
@@ -117,8 +140,10 @@ extension EditNoteScreenView: ViewSetuping {
 //MARK: Configurating view
 
 extension EditNoteScreenView {
+    
     func configureView(note: Note?) {
         if let note = note {
+            self.note = note
             photoImageView.image = note.picture
             titleTextField.text = note.title
             descriptionTextView.text = note.text
@@ -133,21 +158,39 @@ extension EditNoteScreenView {
 
 //MARK: Configurating Interaction
 
-extension EditNoteScreenView: UITextViewDelegate {
+extension EditNoteScreenView: UITextViewDelegate, UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.delegate?.didBeginEditing()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.note.title = textField.text ?? "1"
+        self.delegate?.didEndEditing()
+    }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.text == "Enter the note" {
             textView.text = ""
         }
+        self.delegate?.didBeginEditing()
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text == "" {
             textView.text = "Enter the note"
         }
+        self.note.text = textView.text
+        self.delegate?.didEndEditing()
+    }
+    
+    
+    @objc private func mapImageViewDidTap() {
+        print(123)
     }
     
 }
+
 
 extension EditNoteScreenView {
     
@@ -156,6 +199,8 @@ extension EditNoteScreenView {
     }
     
     func updatephotoImageView(image: UIImage) {
+        self.note.picture = image
         photoImageView.image = image
     }
+    
 }

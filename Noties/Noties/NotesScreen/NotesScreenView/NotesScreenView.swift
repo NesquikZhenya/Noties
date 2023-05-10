@@ -58,7 +58,6 @@ final class NotesScreenView: UIView {
     private let notesTableView: UITableView = {
         let tableView = UITableView(frame: CGRect(), style: .plain)
         tableView.showsVerticalScrollIndicator = false
-        tableView.allowsSelection = false
         tableView.separatorStyle = .none
         return tableView
     }()
@@ -144,6 +143,7 @@ extension NotesScreenView: ViewSetuping {
 //MARK: Configurating view
 
 extension NotesScreenView {
+    
     func configureView(notes: [Note]) {
         if notes.isEmpty {
             notesTableView.isHidden = true
@@ -153,6 +153,7 @@ extension NotesScreenView {
             notesTableView.reloadData()
         }
     }
+    
 }
 
 //MARK: Configurating NotesTableView
@@ -166,10 +167,16 @@ extension NotesScreenView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "NotesTableViewCell") as? NotesTableViewCell {
             cell.configureCell(note: notes[indexPath.row])
-            return cell
+            cell.delegate = self.delegate
+            cell.selectionStyle = .none
+        return cell
         } else {
             return UITableViewCell()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.delegate?.editNoteViewDidTap(note: notes[indexPath.row])
     }
     
 }
@@ -177,7 +184,9 @@ extension NotesScreenView: UITableViewDataSource, UITableViewDelegate {
 //MARK: Configurating Interaction
 
 extension NotesScreenView {
+    
     @objc func addNoteButtonDidTap() {
         self.delegate?.addNoteButtonDidTap()
     }
+    
 }
