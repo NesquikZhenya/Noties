@@ -17,9 +17,14 @@ final class EditNoteScreenViewController: UIViewController {
     
     private let editNoteScreenViewModel = EditNoteScreenViewModel()
     private let editNoteScreenView = EditNoteScreenView()
-    private lazy var deleteButton = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(deleteNoteButtonDidTap))
-    private lazy var doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneEditingNoteButtonDidTap))
-    private var isDeletingNote = false
+    private lazy var deleteButton = UIBarButtonItem(title: "Delete",
+                                                    style: .done,
+                                                    target: self,
+                                                    action: #selector(deleteNoteButtonDidTap))
+    private lazy var doneButton = UIBarButtonItem(title: "Done",
+                                                  style: .done,
+                                                  target: self,
+                                                  action: #selector(doneEditingNoteButtonDidTap))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +35,10 @@ final class EditNoteScreenViewController: UIViewController {
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtondImage
         self.navigationController?.navigationBar.tintColor = UIColor(red: 0.004, green: 0, blue: 0.208, alpha: 1)
         self.navigationItem.rightBarButtonItem = deleteButton
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        if self.isMovingFromParent && !isDeletingNote {
-            editNoteScreenViewModel.updateNote(note: editNoteScreenView.note)
-        }
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "back")?.withTintColor(UIColor(red: 0.004, green: 0, blue: 0.208, alpha: 1)),
+                                                                style: .done,
+                                                                target: self,
+                                                                action: #selector(backEditingNoteButtonDidTap))
     }
     
 }
@@ -48,13 +50,18 @@ extension EditNoteScreenViewController {
     }
     
     @objc private func deleteNoteButtonDidTap() {
-        self.isDeletingNote = true
         editNoteScreenViewModel.deleteNote(note: editNoteScreenView.note)
         self.navigationController?.popViewController(animated: true)
     }
     
     @objc private func doneEditingNoteButtonDidTap() {
         editNoteScreenView.endEditing(true)
+    }
+    
+    @objc private func backEditingNoteButtonDidTap() {
+        editNoteScreenView.endEditing(true)
+        editNoteScreenViewModel.updateNote(note: editNoteScreenView.note)
+        self.navigationController?.popViewController(animated: true)
     }
     
 }
