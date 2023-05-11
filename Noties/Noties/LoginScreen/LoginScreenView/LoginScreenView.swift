@@ -7,14 +7,18 @@
 
 import UIKit
 
-class LoginScreenView: UIView {
+final class LoginScreenView: UIView {
     
+    weak var delegate: LoginScreenViewListening?
+    
+    private var users: [User] = []
     private var hasUsername = false
     private var isLongerThanEight = false
     private var createdUsername = false
     private var isAcceptable = false
     private var isAcceptable2 = false
     private var showsLoginMenu = true
+    private var isRememberingUser = false
     
     private lazy var loginButton: UIButton = {
         let button = UIButton()
@@ -76,6 +80,35 @@ class LoginScreenView: UIView {
         return button
     }()
     
+    private lazy var checkImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.tintColor = UIColor(red: 0.004, green: 0, blue: 0.208, alpha: 1)
+        imageView.image = UIImage(named: "noCheck")
+        imageView.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        imageView.isUserInteractionEnabled = true
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(rememberMeButtonDidTap))
+        imageView.addGestureRecognizer(gesture)
+        return imageView
+    }()
+    
+    private let rememberMeLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+        label.text = "Remember me"
+        return label
+    }()
+    
+    lazy var rememberMeStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .fillProportionally
+        stackView.addArrangedSubview(checkImageView)
+        stackView.addArrangedSubview(rememberMeLabel)
+        stackView.spacing = 12
+        return stackView
+    }()
+    
     lazy var loginStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -84,6 +117,7 @@ class LoginScreenView: UIView {
         stackView.addArrangedSubview(usernameTextField)
         stackView.addArrangedSubview(passwordLabel)
         stackView.addArrangedSubview(passwordTextField)
+        stackView.addArrangedSubview(rememberMeStackView)
         stackView.addArrangedSubview(startButton)
         return stackView
     }()
@@ -92,7 +126,7 @@ class LoginScreenView: UIView {
     
     private let createUsernameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Create a username:"
+        label.text = "Create username:"
         label.font = .systemFont(ofSize: 20, weight: .regular)
         return label
     }()
@@ -108,7 +142,7 @@ class LoginScreenView: UIView {
     
     private let createPasswordLabel: UILabel = {
         let label = UILabel()
-        label.text = "Password:"
+        label.text = "Create password:"
         label.font = .systemFont(ofSize: 20, weight: .regular)
         return label
     }()
@@ -136,6 +170,7 @@ class LoginScreenView: UIView {
         textField.borderStyle = .roundedRect
         textField.placeholder = "Repeat password"
         textField.isSecureTextEntry = true
+        textField.isEnabled = false
         textField.delegate = self
         return textField
     }()
@@ -244,6 +279,10 @@ extension LoginScreenView: ViewSetuping {
 
 extension LoginScreenView {
     
+    func configureView(users: [User]) {
+        self.users = users
+    }
+    
     private func configureButton(title: String, imageName: String) -> UIButton {
         var font = AttributeContainer()
         font.font = .systemFont(ofSize: 16, weight: .bold)
@@ -304,28 +343,87 @@ extension LoginScreenView: UITextFieldDelegate {
     
     @objc private func startButtonDidTap() {
         self.endEditing(true)
+        let user = User(name: usernameTextField.text!, password: passwordTextField.text!)
+        if let storedUser = users.first(where: { $0.name == user.name }) {
+            if storedUser.password == user.password {
+                delegate?.loginUser(user: user, remember: self.isRememberingUser)
+            } else {
+                passwordLabel.text = "Wrong password"
+                passwordLabel.textColor = .red
+            }
+        } else {
+            usernameLabel.text = "Wrong username"
+            usernameLabel.textColor = .red
+        }
+
     }
     
     @objc private func proceedButtonDidTap() {
         self.endEditing(true)
+        let user = User(name: createUsernameTextField.text!, password: createPasswordTextField.text!)
+        if users.contains(where: { $0.name == user.name }) {
+            createUsernameLabel.text = "User already exists"
+            createUsernameLabel.textColor = .red
+        } else {
+            delegate?.registerUser(user: user)
+            loginButtonDidTap()
+        }
+    }
+    
+    @objc private func rememberMeButtonDidTap() {
+        isRememberingUser.toggle()
+        switch isRememberingUser {
+        case true: checkImageView.image = UIImage(named: "check")
+        case false: checkImageView.image = UIImage(named: "noCheck")
+        }
     }
         
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-        if textField.placeholder == "Remember yourself?" {
+        switch textField.placeholder {
+            
+        case "Remember yourself?":
             if textField.text?.count ?? 0 > 0 {
                 self.hasUsername = true
             } else {
                 self.hasUsername = false
             }
-        }
-        
-        if textField.placeholder == "Your secrets" {
+            
+        case "Your secrets":
             if textField.text?.count ?? 0 > 7 {
                 self.isLongerThanEight = true
             } else {
                 self.isLongerThanEight = false
             }
+            
+        case "For example: Superstar":
+            if textField.text?.count ?? 0 > 0 {
+                self.createdUsername = true
+            } else {
+                self.createdUsername = false
+            }
+            
+        case "8 characters, use 1 number":
+            if (textField.text?.count ?? 0 > 7) && (textField.text?.rangeOfCharacter(from: .decimalDigits) != nil) {
+                self.isAcceptable = true
+                self.confirmPasswordTextField.isEnabled = true
+            } else {
+                self.isAcceptable = false
+                self.confirmPasswordTextField.isEnabled = false
+                createPasswordLabel.text = "Conditions not met"
+                createPasswordLabel.textColor = .red
+            }
+            
+        case "Repeat password":
+            if createPasswordTextField.text == confirmPasswordTextField.text {
+                self.isAcceptable2 = true
+            } else {
+                self.isAcceptable2 = false
+                confirmPasswordLabel.text = "Password mismatch"
+                confirmPasswordLabel.textColor = .red
+            }
+            
+        default: return
         }
         
         if hasUsername && isLongerThanEight {
@@ -334,36 +432,41 @@ extension LoginScreenView: UITextFieldDelegate {
             self.startButton.isEnabled = false
         }
         
-        if textField.placeholder == "For example: Superstar" {
-            if textField.text?.count ?? 0 > 0 {
-                self.createdUsername = true
-            } else {
-                self.createdUsername = false
-            }
-        }
-        
-        if textField.placeholder == "8 characters, use 1 number" {
-            if (textField.text?.count ?? 0 > 7) && (textField.text?.rangeOfCharacter(from: .decimalDigits) != nil) {
-                self.isAcceptable = true
-            } else {
-                self.isAcceptable = false
-            }
-        }
-        
-        if textField.placeholder == "Repeat password" {
-            if (textField.text?.count ?? 0 > 7) {
-                self.isAcceptable2 = true
-            } else {
-                self.isAcceptable2 = false
-            }
-        }
-        
         if createdUsername && isAcceptable && isAcceptable2 {
             self.proceedButton.isEnabled = true
         } else {
             self.proceedButton.isEnabled = false
         }
         
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        switch textField.placeholder {
+            
+        case "Remember yourself?":
+            usernameLabel.text = "Username"
+            usernameLabel.textColor = .black
+            
+        case "Your secrets":
+            passwordLabel.text = "Password"
+            passwordLabel.textColor = .black
+            
+        case "For example: Superstar":
+            createUsernameLabel.text = "Create username"
+            createUsernameLabel.textColor = .black
+            
+        case "8 characters, use 1 number":
+            createPasswordLabel.text = "Create password"
+            createPasswordLabel.textColor = .black
+            
+        case "Repeat password":
+            confirmPasswordLabel.text = "Confirm password"
+            confirmPasswordLabel.textColor = .black
+            
+        default: return
+        }
+
     }
     
 }

@@ -31,6 +31,10 @@
 		52CB3CDC2A0B9ABE00C4F5D3 /* NotesStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CDA2A0B9ABE00C4F5D3 /* NotesStorage.xcdatamodeld */; };
 		52CB3CE12A0C223900C4F5D3 /* LoginScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CE02A0C223900C4F5D3 /* LoginScreenView.swift */; };
 		52CB3CE42A0C226E00C4F5D3 /* LoginScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CE32A0C226E00C4F5D3 /* LoginScreenViewController.swift */; };
+		52CB3CEE2A0D603C00C4F5D3 /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CED2A0D603C00C4F5D3 /* UserDataModel.swift */; };
+		52CB3CF02A0D61CA00C4F5D3 /* LoginScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CEF2A0D61CA00C4F5D3 /* LoginScreenViewModel.swift */; };
+		52CB3CF22A0D625100C4F5D3 /* UsersDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CF12A0D625100C4F5D3 /* UsersDataStorage.swift */; };
+		52CB3CF42A0D640E00C4F5D3 /* LoginScreenDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CF32A0D640E00C4F5D3 /* LoginScreenDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +64,10 @@
 		52CB3CDB2A0B9ABE00C4F5D3 /* NotesStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NotesStorage.xcdatamodel; sourceTree = "<group>"; };
 		52CB3CE02A0C223900C4F5D3 /* LoginScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenView.swift; sourceTree = "<group>"; };
 		52CB3CE32A0C226E00C4F5D3 /* LoginScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewController.swift; sourceTree = "<group>"; };
+		52CB3CED2A0D603C00C4F5D3 /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
+		52CB3CEF2A0D61CA00C4F5D3 /* LoginScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewModel.swift; sourceTree = "<group>"; };
+		52CB3CF12A0D625100C4F5D3 /* UsersDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDataStorage.swift; sourceTree = "<group>"; };
+		52CB3CF32A0D640E00C4F5D3 /* LoginScreenDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +134,7 @@
 				5277C79D2A0A7A5900E11443 /* CoreData */,
 				52CB3CC22A0A923D00C4F5D3 /* ViewSetuping.swift */,
 				52CB3CC42A0A925200C4F5D3 /* NoteDataModel.swift */,
+				52CB3CED2A0D603C00C4F5D3 /* UserDataModel.swift */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -162,6 +171,7 @@
 				52CB3CDA2A0B9ABE00C4F5D3 /* NotesStorage.xcdatamodeld */,
 				5277C79E2A0A7A7500E11443 /* AppDataController.swift */,
 				5277C7972A0A719D00E11443 /* NotesDataStorage.swift */,
+				52CB3CF12A0D625100C4F5D3 /* UsersDataStorage.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -245,6 +255,7 @@
 		52CB3CDD2A0C21E500C4F5D3 /* LoginScreenDataModel */ = {
 			isa = PBXGroup;
 			children = (
+				52CB3CF32A0D640E00C4F5D3 /* LoginScreenDataManager.swift */,
 			);
 			path = LoginScreenDataModel;
 			sourceTree = "<group>";
@@ -252,6 +263,7 @@
 		52CB3CDE2A0C21FF00C4F5D3 /* LoginScreenViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				52CB3CEF2A0D61CA00C4F5D3 /* LoginScreenViewModel.swift */,
 			);
 			path = LoginScreenViewModel;
 			sourceTree = "<group>";
@@ -337,18 +349,22 @@
 			files = (
 				52CB3CE42A0C226E00C4F5D3 /* LoginScreenViewController.swift in Sources */,
 				52CB3CDC2A0B9ABE00C4F5D3 /* NotesStorage.xcdatamodeld in Sources */,
+				52CB3CF02A0D61CA00C4F5D3 /* LoginScreenViewModel.swift in Sources */,
 				5277C75D2A0970E200E11443 /* ViewController.swift in Sources */,
 				52CB3CCD2A0AD22000C4F5D3 /* SelectPhotoViewController.swift in Sources */,
 				5277C7592A0970E200E11443 /* AppDelegate.swift in Sources */,
+				52CB3CF22A0D625100C4F5D3 /* UsersDataStorage.swift in Sources */,
 				5277C79A2A0A720700E11443 /* NotesScreenDataManager.swift in Sources */,
 				52CB3CBE2A0A900900C4F5D3 /* NotiesTabBarController.swift in Sources */,
 				52CB3CD62A0B819F00C4F5D3 /* EditNoteScreenDataManager.swift in Sources */,
 				52CB3CC82A0AA27000C4F5D3 /* EditNoteScreenViewController.swift in Sources */,
 				5277C7962A0A712800E11443 /* NotesScreenViewModel.swift in Sources */,
 				5277C78C2A0A386E00E11443 /* NotesScreenViewController.swift in Sources */,
+				52CB3CF42A0D640E00C4F5D3 /* LoginScreenDataManager.swift in Sources */,
 				52CB3CCF2A0AD77700C4F5D3 /* SelectPhotoCollectionViewCell.swift in Sources */,
 				5277C78E2A0A388100E11443 /* NotesScreenView.swift in Sources */,
 				52CB3CD82A0B82DC00C4F5D3 /* EditNoteScreenViewModel.swift in Sources */,
+				52CB3CEE2A0D603C00C4F5D3 /* UserDataModel.swift in Sources */,
 				5277C7982A0A719D00E11443 /* NotesDataStorage.swift in Sources */,
 				52CB3CCA2A0AA28500C4F5D3 /* EditNoteScreenView.swift in Sources */,
 				5277C75B2A0970E200E11443 /* SceneDelegate.swift in Sources */,

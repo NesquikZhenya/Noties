@@ -9,15 +9,13 @@ import Foundation
 import UIKit
 
 
-protocol NotesDataManaging: AnyObject {
+protocol NotesDataManaging {
     func getNotes()
 }
 
 final class NotesScreenViewModel {
     
-    weak var delegate: NotesScreenViewModelListening?
-    private let notesDataStorage = NotesDataStorage()
-    
+    weak var delegate: NotesScreenViewModelListening?    
     private var notesScreenDataManager: NotesDataProviding
 
     init(notesDataProvider: NotesDataProviding = NotesScreenDataManager()) {
@@ -50,10 +48,7 @@ extension NotesScreenViewModel: NotesDataManaging {
                 notes.append(note)
             }
             return notes.sorted(by: { $0.date > $1.date })
-//            return [Note(id: UUID(), title: "Meow", text: "adasdaasd", picture: UIImage(named: "plus")!, location: ""),
-//                    Note(id: UUID(), title: "Purr", text: "", picture: UIImage(named: "attach")!, location: ""),
-//                    Note(id: UUID(), title: "Kiss", text: "123 123 123 \(/n/) 123123", picture: UIImage(named: "profile")!, location: "")
-//            ]
+            
         }
         
     }

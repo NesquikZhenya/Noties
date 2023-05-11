@@ -60,8 +60,9 @@ extension EditNoteScreenViewController {
     
     @objc private func backEditingNoteButtonDidTap() {
         editNoteScreenView.endEditing(true)
-        editNoteScreenViewModel.updateNote(note: editNoteScreenView.note)
-        self.navigationController?.popViewController(animated: true)
+        editNoteScreenViewModel.updateNote(note: editNoteScreenView.note) { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }
     }
     
 }

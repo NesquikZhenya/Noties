@@ -8,7 +8,7 @@
 import Foundation
 
 protocol EditNoteDataUpdating {
-    func updateNoteData(note: Note)
+    func updateNoteData(note: Note, completion: @escaping () -> ()?)
     func deleteNoteData(note: Note)
 }
 
@@ -20,8 +20,8 @@ struct EditNoteScreenDataManager {
 
 extension EditNoteScreenDataManager: EditNoteDataUpdating {
     
-    func updateNoteData(note: Note) {
-        notesDataStorage.update(note: note)
+    func updateNoteData(note: Note, completion: @escaping () -> ()?) {
+        notesDataStorage.update(note: note, completion: completion)
     }
     
     func deleteNoteData(note: Note) {

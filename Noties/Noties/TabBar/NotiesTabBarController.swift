@@ -10,7 +10,7 @@ import UIKit
 final class NotiesTabBarController: UITabBarController {
 
     private var customTabBarView = UIView(frame: .zero)
-            
+                
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTabBarUI()
@@ -18,6 +18,11 @@ final class NotiesTabBarController: UITabBarController {
         tabBar.tintColor = .white
         tabBar.barTintColor = .gray
         setupViewControllers()
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "log out",
+                                                                style: .done,
+                                                                target: self,
+                                                                action: #selector(logOutButtonDidTap))
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor(red: 0.004, green: 0, blue: 0.208, alpha: 1)
     }
     
     override func viewDidLayoutSubviews() {
@@ -64,8 +69,18 @@ final class NotiesTabBarController: UITabBarController {
           viewControllers = [
             configureViewController(for: NotesScreenViewController(), title: "Notes", image: UIImage(named: "notes")),
             configureViewController(for: ViewController(), title: "Map", image: UIImage(named: "map")),
-            configureViewController(for: LoginScreenViewController(), title: "Profile", image: UIImage(named: "profile")),
+            configureViewController(for: ViewController(), title: "Profile", image: UIImage(named: "profile")),
           ]
       }
+    
+    func forUsername(username: String) -> NotiesTabBarController {
+        UserDefaults.standard.set(username, forKey: "currentUser")
+        return self
+    }
+    
+    @objc private func logOutButtonDidTap() {
+        UserDefaults.standard.removeObject(forKey: "savedUser")
+        self.navigationController?.popViewController(animated: true)
+    }
 
 }

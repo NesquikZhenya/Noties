@@ -8,14 +8,12 @@
 import Foundation
 
 
-protocol EditNoteDataManaging: AnyObject {
-    func updateNote(note: Note)
+protocol EditNoteDataManaging {
+    func updateNote(note: Note, completion: @escaping () -> ()?)
 }
 
 final class EditNoteScreenViewModel {
-    
-    private let notesDataStorage = NotesDataStorage()
-    
+        
     private var editNoteDataManager: EditNoteDataUpdating
 
     init(editNoteDataManager: EditNoteDataUpdating = EditNoteScreenDataManager()) {
@@ -28,8 +26,8 @@ final class EditNoteScreenViewModel {
 
 extension EditNoteScreenViewModel: EditNoteDataManaging {
     
-    func updateNote(note: Note) {
-        editNoteDataManager.updateNoteData(note: note)
+    func updateNote(note: Note, completion: @escaping () -> ()?) {
+        editNoteDataManager.updateNoteData(note: note, completion: completion)
     }
     
     func deleteNote(note: Note) {
