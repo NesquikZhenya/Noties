@@ -29,6 +29,8 @@
 		52CB3CD62A0B819F00C4F5D3 /* EditNoteScreenDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CD52A0B819F00C4F5D3 /* EditNoteScreenDataManager.swift */; };
 		52CB3CD82A0B82DC00C4F5D3 /* EditNoteScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CD72A0B82DC00C4F5D3 /* EditNoteScreenViewModel.swift */; };
 		52CB3CDC2A0B9ABE00C4F5D3 /* NotesStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CDA2A0B9ABE00C4F5D3 /* NotesStorage.xcdatamodeld */; };
+		52CB3CE12A0C223900C4F5D3 /* LoginScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CE02A0C223900C4F5D3 /* LoginScreenView.swift */; };
+		52CB3CE42A0C226E00C4F5D3 /* LoginScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CE32A0C226E00C4F5D3 /* LoginScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		52CB3CD52A0B819F00C4F5D3 /* EditNoteScreenDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteScreenDataManager.swift; sourceTree = "<group>"; };
 		52CB3CD72A0B82DC00C4F5D3 /* EditNoteScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteScreenViewModel.swift; sourceTree = "<group>"; };
 		52CB3CDB2A0B9ABE00C4F5D3 /* NotesStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NotesStorage.xcdatamodel; sourceTree = "<group>"; };
+		52CB3CE02A0C223900C4F5D3 /* LoginScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenView.swift; sourceTree = "<group>"; };
+		52CB3CE32A0C226E00C4F5D3 /* LoginScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +177,9 @@
 		52CB3CBF2A0A901E00C4F5D3 /* LoginScreen */ = {
 			isa = PBXGroup;
 			children = (
+				52CB3CDD2A0C21E500C4F5D3 /* LoginScreenDataModel */,
+				52CB3CDE2A0C21FF00C4F5D3 /* LoginScreenViewModel */,
+				52CB3CDF2A0C220C00C4F5D3 /* LoginScreenView */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
@@ -233,6 +240,29 @@
 				52CB3CC92A0AA28500C4F5D3 /* EditNoteScreenView.swift */,
 			);
 			path = EditNoteScreenView;
+			sourceTree = "<group>";
+		};
+		52CB3CDD2A0C21E500C4F5D3 /* LoginScreenDataModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LoginScreenDataModel;
+			sourceTree = "<group>";
+		};
+		52CB3CDE2A0C21FF00C4F5D3 /* LoginScreenViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LoginScreenViewModel;
+			sourceTree = "<group>";
+		};
+		52CB3CDF2A0C220C00C4F5D3 /* LoginScreenView */ = {
+			isa = PBXGroup;
+			children = (
+				52CB3CE32A0C226E00C4F5D3 /* LoginScreenViewController.swift */,
+				52CB3CE02A0C223900C4F5D3 /* LoginScreenView.swift */,
+			);
+			path = LoginScreenView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52CB3CE42A0C226E00C4F5D3 /* LoginScreenViewController.swift in Sources */,
 				52CB3CDC2A0B9ABE00C4F5D3 /* NotesStorage.xcdatamodeld in Sources */,
 				5277C75D2A0970E200E11443 /* ViewController.swift in Sources */,
 				52CB3CCD2A0AD22000C4F5D3 /* SelectPhotoViewController.swift in Sources */,
@@ -321,6 +352,7 @@
 				5277C7982A0A719D00E11443 /* NotesDataStorage.swift in Sources */,
 				52CB3CCA2A0AA28500C4F5D3 /* EditNoteScreenView.swift in Sources */,
 				5277C75B2A0970E200E11443 /* SceneDelegate.swift in Sources */,
+				52CB3CE12A0C223900C4F5D3 /* LoginScreenView.swift in Sources */,
 				52CB3CC32A0A923D00C4F5D3 /* ViewSetuping.swift in Sources */,
 				52CB3CC52A0A925200C4F5D3 /* NoteDataModel.swift in Sources */,
 				5277C7942A0A461E00E11443 /* NotesTableViewCell.swift in Sources */,

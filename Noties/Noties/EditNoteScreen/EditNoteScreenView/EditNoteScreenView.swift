@@ -70,10 +70,6 @@ final class EditNoteScreenView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func dismissKeyboard() {
-        self.endEditing(true)
-    }
-    
 }
 
 //MARK: Configurating constraints
@@ -151,10 +147,6 @@ extension EditNoteScreenView {
         }
     }
     
-    func addPhotoImageViewGesture(gesture: UITapGestureRecognizer) {
-        photoImageView.addGestureRecognizer(gesture)
-    }
-    
 }
 
 //MARK: Configurating Interaction
@@ -185,6 +177,9 @@ extension EditNoteScreenView: UITextViewDelegate, UITextFieldDelegate {
         self.delegate?.didEndEditing()
     }
     
+    @objc private func dismissKeyboard() {
+        self.endEditing(true)
+    }
     
     @objc private func mapImageViewDidTap() {
         print(123)
