@@ -9,15 +9,16 @@ import Foundation
 
 
 protocol EditNoteDataManaging {
-    func updateNote(note: Note, completion: @escaping () -> ()?)
+    func updateNote(note: Note)
 }
 
 final class EditNoteScreenViewModel {
         
-    private var editNoteDataManager: EditNoteDataUpdating
+    weak var delegate: EditNoteScreenViewModelListening?
+    private var editNoteScreenDataManager: EditNoteDataUpdating
 
-    init(editNoteDataManager: EditNoteDataUpdating = EditNoteScreenDataManager()) {
-        self.editNoteDataManager = editNoteDataManager
+    init(editNoteScreenDataManager: EditNoteDataUpdating = EditNoteScreenDataManager()) {
+        self.editNoteScreenDataManager = editNoteScreenDataManager
     }
     
 }
@@ -26,12 +27,14 @@ final class EditNoteScreenViewModel {
 
 extension EditNoteScreenViewModel: EditNoteDataManaging {
     
-    func updateNote(note: Note, completion: @escaping () -> ()?) {
-        editNoteDataManager.updateNoteData(note: note, completion: completion)
+    func updateNote(note: Note) {
+        editNoteScreenDataManager.updateNoteData(note: note) {
+            self.delegate?.closeViewController()
+        }
     }
     
     func deleteNote(note: Note) {
-        editNoteDataManager.deleteNoteData(note: note)
+        editNoteScreenDataManager.deleteNoteData(note: note)
     }
  
 }

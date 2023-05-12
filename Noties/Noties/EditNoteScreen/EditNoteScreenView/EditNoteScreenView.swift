@@ -15,7 +15,7 @@ final class EditNoteScreenView: UIView {
                     title: "No name",
                     text: "Enter the note",
                     picture: UIImage(named: "attach")!,
-                    location: "",
+                    location: CLLocationCoordinate2D(),
                     date: Date())
     
     private lazy var photoImageView: UIImageView = {
@@ -177,12 +177,12 @@ extension EditNoteScreenView: UITextViewDelegate, UITextFieldDelegate {
         self.delegate?.didEndEditing()
     }
     
-    @objc private func dismissKeyboard() {
-        self.endEditing(true)
+    @objc private func mapImageViewDidTap() {
+        self.delegate?.mapImageViewDidTap()
     }
     
-    @objc private func mapImageViewDidTap() {
-        print(123)
+    @objc private func dismissKeyboard() {
+        self.endEditing(true)
     }
     
 }

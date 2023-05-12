@@ -35,6 +35,12 @@
 		52CB3CF02A0D61CA00C4F5D3 /* LoginScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CEF2A0D61CA00C4F5D3 /* LoginScreenViewModel.swift */; };
 		52CB3CF22A0D625100C4F5D3 /* UsersDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CF12A0D625100C4F5D3 /* UsersDataStorage.swift */; };
 		52CB3CF42A0D640E00C4F5D3 /* LoginScreenDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CF32A0D640E00C4F5D3 /* LoginScreenDataManager.swift */; };
+		52CB3CF92A0E2EF300C4F5D3 /* EditMapScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3CF82A0E2EF300C4F5D3 /* EditMapScreenViewController.swift */; };
+		52CB3D042A0E6B5100C4F5D3 /* MapsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3D032A0E6B5100C4F5D3 /* MapsScreenViewController.swift */; };
+		52CB3D072A0E72EA00C4F5D3 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3D062A0E72EA00C4F5D3 /* CLLocationCoordinate2D.swift */; };
+		52CB3D0A2A0E7FC700C4F5D3 /* MapsScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3D092A0E7FC700C4F5D3 /* MapsScreenViewModel.swift */; };
+		52CB3D0D2A0E844B00C4F5D3 /* MapsScreenDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3D0C2A0E844B00C4F5D3 /* MapsScreenDataManager.swift */; };
+		52CB3D0F2A0E885D00C4F5D3 /* MapsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB3D0E2A0E885D00C4F5D3 /* MapsScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +74,12 @@
 		52CB3CEF2A0D61CA00C4F5D3 /* LoginScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewModel.swift; sourceTree = "<group>"; };
 		52CB3CF12A0D625100C4F5D3 /* UsersDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDataStorage.swift; sourceTree = "<group>"; };
 		52CB3CF32A0D640E00C4F5D3 /* LoginScreenDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenDataManager.swift; sourceTree = "<group>"; };
+		52CB3CF82A0E2EF300C4F5D3 /* EditMapScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMapScreenViewController.swift; sourceTree = "<group>"; };
+		52CB3D032A0E6B5100C4F5D3 /* MapsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsScreenViewController.swift; sourceTree = "<group>"; };
+		52CB3D062A0E72EA00C4F5D3 /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
+		52CB3D092A0E7FC700C4F5D3 /* MapsScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsScreenViewModel.swift; sourceTree = "<group>"; };
+		52CB3D0C2A0E844B00C4F5D3 /* MapsScreenDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsScreenDataManager.swift; sourceTree = "<group>"; };
+		52CB3D0E2A0E885D00C4F5D3 /* MapsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +118,8 @@
 				5277C7722A09780000E11443 /* NotesScreen */,
 				52CB3CC62A0AA1DE00C4F5D3 /* EditNoteScreen */,
 				52CB3CCB2A0AD1FF00C4F5D3 /* SelectPhotoScreen */,
-				52CB3CC02A0A903500C4F5D3 /* MapsScreen */,
-				52CB3CC12A0A903F00C4F5D3 /* ProfileScreen */,
+				52CB3CC02A0A903500C4F5D3 /* EditMapScreen */,
+				52CB3D022A0E6B0200C4F5D3 /* MapsScreen */,
 				5277C7582A0970E200E11443 /* AppDelegate.swift */,
 				5277C75A2A0970E200E11443 /* SceneDelegate.swift */,
 				5277C75C2A0970E200E11443 /* ViewController.swift */,
@@ -133,6 +145,7 @@
 			children = (
 				5277C79D2A0A7A5900E11443 /* CoreData */,
 				52CB3CC22A0A923D00C4F5D3 /* ViewSetuping.swift */,
+				52CB3D062A0E72EA00C4F5D3 /* CLLocationCoordinate2D.swift */,
 				52CB3CC42A0A925200C4F5D3 /* NoteDataModel.swift */,
 				52CB3CED2A0D603C00C4F5D3 /* UserDataModel.swift */,
 			);
@@ -194,18 +207,12 @@
 			path = LoginScreen;
 			sourceTree = "<group>";
 		};
-		52CB3CC02A0A903500C4F5D3 /* MapsScreen */ = {
+		52CB3CC02A0A903500C4F5D3 /* EditMapScreen */ = {
 			isa = PBXGroup;
 			children = (
+				52CB3CF72A0E2EDF00C4F5D3 /* EditMapScreenView */,
 			);
-			path = MapsScreen;
-			sourceTree = "<group>";
-		};
-		52CB3CC12A0A903F00C4F5D3 /* ProfileScreen */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ProfileScreen;
+			path = EditMapScreen;
 			sourceTree = "<group>";
 		};
 		52CB3CC62A0AA1DE00C4F5D3 /* EditNoteScreen */ = {
@@ -221,8 +228,7 @@
 		52CB3CCB2A0AD1FF00C4F5D3 /* SelectPhotoScreen */ = {
 			isa = PBXGroup;
 			children = (
-				52CB3CCC2A0AD22000C4F5D3 /* SelectPhotoViewController.swift */,
-				52CB3CCE2A0AD77700C4F5D3 /* SelectPhotoCollectionViewCell.swift */,
+				52CB3D002A0E554000C4F5D3 /* SelectPhotoScreenView */,
 			);
 			path = SelectPhotoScreen;
 			sourceTree = "<group>";
@@ -275,6 +281,58 @@
 				52CB3CE02A0C223900C4F5D3 /* LoginScreenView.swift */,
 			);
 			path = LoginScreenView;
+			sourceTree = "<group>";
+		};
+		52CB3CF72A0E2EDF00C4F5D3 /* EditMapScreenView */ = {
+			isa = PBXGroup;
+			children = (
+				52CB3CF82A0E2EF300C4F5D3 /* EditMapScreenViewController.swift */,
+			);
+			path = EditMapScreenView;
+			sourceTree = "<group>";
+		};
+		52CB3D002A0E554000C4F5D3 /* SelectPhotoScreenView */ = {
+			isa = PBXGroup;
+			children = (
+				52CB3CCC2A0AD22000C4F5D3 /* SelectPhotoViewController.swift */,
+				52CB3CCE2A0AD77700C4F5D3 /* SelectPhotoCollectionViewCell.swift */,
+			);
+			path = SelectPhotoScreenView;
+			sourceTree = "<group>";
+		};
+		52CB3D022A0E6B0200C4F5D3 /* MapsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				52CB3D0B2A0E842900C4F5D3 /* MapsScreenDataManager */,
+				52CB3D082A0E7FB900C4F5D3 /* MapsScreenViewModel */,
+				52CB3D052A0E6B5700C4F5D3 /* MapsScreenView */,
+			);
+			path = MapsScreen;
+			sourceTree = "<group>";
+		};
+		52CB3D052A0E6B5700C4F5D3 /* MapsScreenView */ = {
+			isa = PBXGroup;
+			children = (
+				52CB3D032A0E6B5100C4F5D3 /* MapsScreenViewController.swift */,
+				52CB3D0E2A0E885D00C4F5D3 /* MapsScreenView.swift */,
+			);
+			path = MapsScreenView;
+			sourceTree = "<group>";
+		};
+		52CB3D082A0E7FB900C4F5D3 /* MapsScreenViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				52CB3D092A0E7FC700C4F5D3 /* MapsScreenViewModel.swift */,
+			);
+			path = MapsScreenViewModel;
+			sourceTree = "<group>";
+		};
+		52CB3D0B2A0E842900C4F5D3 /* MapsScreenDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				52CB3D0C2A0E844B00C4F5D3 /* MapsScreenDataManager.swift */,
+			);
+			path = MapsScreenDataManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,23 +410,29 @@
 				52CB3CF02A0D61CA00C4F5D3 /* LoginScreenViewModel.swift in Sources */,
 				5277C75D2A0970E200E11443 /* ViewController.swift in Sources */,
 				52CB3CCD2A0AD22000C4F5D3 /* SelectPhotoViewController.swift in Sources */,
+				52CB3D0A2A0E7FC700C4F5D3 /* MapsScreenViewModel.swift in Sources */,
 				5277C7592A0970E200E11443 /* AppDelegate.swift in Sources */,
 				52CB3CF22A0D625100C4F5D3 /* UsersDataStorage.swift in Sources */,
 				5277C79A2A0A720700E11443 /* NotesScreenDataManager.swift in Sources */,
 				52CB3CBE2A0A900900C4F5D3 /* NotiesTabBarController.swift in Sources */,
+				52CB3D042A0E6B5100C4F5D3 /* MapsScreenViewController.swift in Sources */,
 				52CB3CD62A0B819F00C4F5D3 /* EditNoteScreenDataManager.swift in Sources */,
 				52CB3CC82A0AA27000C4F5D3 /* EditNoteScreenViewController.swift in Sources */,
 				5277C7962A0A712800E11443 /* NotesScreenViewModel.swift in Sources */,
+				52CB3D0D2A0E844B00C4F5D3 /* MapsScreenDataManager.swift in Sources */,
 				5277C78C2A0A386E00E11443 /* NotesScreenViewController.swift in Sources */,
 				52CB3CF42A0D640E00C4F5D3 /* LoginScreenDataManager.swift in Sources */,
+				52CB3D072A0E72EA00C4F5D3 /* CLLocationCoordinate2D.swift in Sources */,
 				52CB3CCF2A0AD77700C4F5D3 /* SelectPhotoCollectionViewCell.swift in Sources */,
 				5277C78E2A0A388100E11443 /* NotesScreenView.swift in Sources */,
+				52CB3CF92A0E2EF300C4F5D3 /* EditMapScreenViewController.swift in Sources */,
 				52CB3CD82A0B82DC00C4F5D3 /* EditNoteScreenViewModel.swift in Sources */,
 				52CB3CEE2A0D603C00C4F5D3 /* UserDataModel.swift in Sources */,
 				5277C7982A0A719D00E11443 /* NotesDataStorage.swift in Sources */,
 				52CB3CCA2A0AA28500C4F5D3 /* EditNoteScreenView.swift in Sources */,
 				5277C75B2A0970E200E11443 /* SceneDelegate.swift in Sources */,
 				52CB3CE12A0C223900C4F5D3 /* LoginScreenView.swift in Sources */,
+				52CB3D0F2A0E885D00C4F5D3 /* MapsScreenView.swift in Sources */,
 				52CB3CC32A0A923D00C4F5D3 /* ViewSetuping.swift in Sources */,
 				52CB3CC52A0A925200C4F5D3 /* NoteDataModel.swift in Sources */,
 				5277C7942A0A461E00E11443 /* NotesTableViewCell.swift in Sources */,

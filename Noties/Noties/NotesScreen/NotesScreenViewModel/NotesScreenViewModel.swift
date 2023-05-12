@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 
 protocol NotesDataManaging {
@@ -18,8 +19,8 @@ final class NotesScreenViewModel {
     weak var delegate: NotesScreenViewModelListening?    
     private var notesScreenDataManager: NotesDataProviding
 
-    init(notesDataProvider: NotesDataProviding = NotesScreenDataManager()) {
-        self.notesScreenDataManager = notesDataProvider
+    init(notesScreenDataManager: NotesDataProviding = NotesScreenDataManager()) {
+        self.notesScreenDataManager = notesScreenDataManager
     }
     
 }
@@ -31,7 +32,7 @@ extension NotesScreenViewModel: NotesDataManaging {
     func getNotes() {
         
         let provideNotesCompletion = { (storedNotes: [StoredNote]) in
-            self.delegate?.initializeNotesScreenView(notes: transformed(storedNotes: storedNotes))
+            self.delegate?.initializeNotesScreenView(notes: transformed(storedNotes: storedNotes), name: storedNotes[0].username ?? "")
         }
         
         notesScreenDataManager.provideNotesData(provideCompletion: provideNotesCompletion)
@@ -43,7 +44,7 @@ extension NotesScreenViewModel: NotesDataManaging {
                                 title: $0.title ?? "",
                                 text: $0.text ?? "",
                                 picture: UIImage(data: $0.picture ?? Data())!,
-                                location: $0.location ?? "",
+                                location: CLLocationCoordinate2D(coords: $0.location ?? "0;0"),
                                 date: $0.date ?? Date())
                 notes.append(note)
             }

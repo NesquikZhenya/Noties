@@ -16,7 +16,7 @@ final class NotesScreenView: UIView {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 30, weight: .bold)
+        label.font = .systemFont(ofSize: 24, weight: .bold)
         label.text = "Here's your notes"
         return label
     }()
@@ -144,7 +144,8 @@ extension NotesScreenView: ViewSetuping {
 
 extension NotesScreenView {
     
-    func configureView(notes: [Note]) {
+    func configureView(notes: [Note], name: String) {
+        titleLabel.text = "Here's your notes \(name)"
         if notes.isEmpty {
             notesTableView.isHidden = true
             noNotesStackView.isHidden = false

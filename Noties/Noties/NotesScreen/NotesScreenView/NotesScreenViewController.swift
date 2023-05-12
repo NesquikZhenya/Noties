@@ -8,7 +8,7 @@
 import UIKit
 
 protocol NotesScreenViewModelListening: AnyObject {
-    func initializeNotesScreenView(notes: [Note])
+    func initializeNotesScreenView(notes: [Note], name: String)
 }
 
 protocol NotesScreenViewListening: NotesTableViewCellListening & AnyObject {
@@ -37,9 +37,9 @@ final class NotesScreenViewController: UIViewController {
 
 extension NotesScreenViewController: NotesScreenViewModelListening {
     
-    func initializeNotesScreenView(notes: [Note]) {
+    func initializeNotesScreenView(notes: [Note], name: String) {
         DispatchQueue.main.async {
-            self.notesScreenView.configureView(notes: notes)
+            self.notesScreenView.configureView(notes: notes, name: name)
         }
     }
     

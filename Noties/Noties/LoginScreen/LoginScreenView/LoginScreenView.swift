@@ -352,7 +352,7 @@ extension LoginScreenView: UITextFieldDelegate {
                 passwordLabel.textColor = .red
             }
         } else {
-            usernameLabel.text = "Wrong username"
+            usernameLabel.text = "Username doesn't exist"
             usernameLabel.textColor = .red
         }
 
@@ -445,23 +445,23 @@ extension LoginScreenView: UITextFieldDelegate {
         switch textField.placeholder {
             
         case "Remember yourself?":
-            usernameLabel.text = "Username"
+            usernameLabel.text = "Username:"
             usernameLabel.textColor = .black
             
         case "Your secrets":
-            passwordLabel.text = "Password"
+            passwordLabel.text = "Password:"
             passwordLabel.textColor = .black
             
         case "For example: Superstar":
-            createUsernameLabel.text = "Create username"
+            createUsernameLabel.text = "Create username:"
             createUsernameLabel.textColor = .black
             
         case "8 characters, use 1 number":
-            createPasswordLabel.text = "Create password"
+            createPasswordLabel.text = "Create password:"
             createPasswordLabel.textColor = .black
             
         case "Repeat password":
-            confirmPasswordLabel.text = "Confirm password"
+            confirmPasswordLabel.text = "Confirm password:"
             confirmPasswordLabel.textColor = .black
             
         default: return

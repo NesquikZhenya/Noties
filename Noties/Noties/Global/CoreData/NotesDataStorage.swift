@@ -19,34 +19,12 @@ struct NotesDataStorage {
             storedNote.title = note.title
             storedNote.text = note.text
             storedNote.picture = note.picture.jpegData(compressionQuality: 1)
-            storedNote.location = note.location
+            storedNote.location = note.location.description
             storedNote.date = note.date
             storedNote.username = UserDefaults.standard.object(forKey: "currentUser") as? String
             try! context.save()
         }
     }
-    
-//    func update(note: Note) {
-//        context.perform {
-//            guard
-//                let fetchRequest = StoredNote.fetchRequest() as? NSFetchRequest<StoredNote>,
-//                let storedNotes = try? context.fetch(fetchRequest)
-//            else { return }
-//
-//            if let storedNote = storedNotes.first(where: { $0.id == note.id }) {
-//                storedNote.id = note.id
-//                storedNote.title = note.title
-//                storedNote.text = note.text
-//                storedNote.picture = note.picture.jpegData(compressionQuality: 1)
-//                storedNote.location = note.location
-//                storedNote.date = note.date
-//                storedNote.username = UserDefaults.standard.object(forKey: "currentUser") as? String
-//            } else {
-//                save(note: note)
-//            }
-//            try! context.save()
-//        }
-//    }
     
     func update(note: Note, completion: @escaping () -> ()?) {
         context.perform {
@@ -60,15 +38,21 @@ struct NotesDataStorage {
                 storedNote.title = note.title
                 storedNote.text = note.text
                 storedNote.picture = note.picture.jpegData(compressionQuality: 1)
-                storedNote.location = note.location
+                storedNote.location = note.location.description
                 storedNote.date = note.date
                 storedNote.username = UserDefaults.standard.object(forKey: "currentUser") as? String
             } else {
                 save(note: note)
             }
             try! context.save()
+            completion()
         }
-        completion()
+    }
+    
+    func updateAll(notes: [Note]) {
+        for note in notes {
+            update(note: note, completion: {} )
+        }
     }
     
     func fetchAll(completion: @escaping ([StoredNote]) -> ()?) {

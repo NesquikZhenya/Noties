@@ -68,8 +68,7 @@ final class NotiesTabBarController: UITabBarController {
     private func setupViewControllers() {
           viewControllers = [
             configureViewController(for: NotesScreenViewController(), title: "Notes", image: UIImage(named: "notes")),
-            configureViewController(for: ViewController(), title: "Map", image: UIImage(named: "map")),
-            configureViewController(for: ViewController(), title: "Profile", image: UIImage(named: "profile")),
+            configureViewController(for: MapsScreenViewController(), title: "Map", image: UIImage(named: "map"))
           ]
       }
     

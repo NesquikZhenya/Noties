@@ -7,10 +7,19 @@
 
 import UIKit
 
+protocol EditNoteScreenViewModelListening: AnyObject {
+    func closeViewController()
+}
+
 protocol EditNoteScreenViewListening: AnyObject {
     func photoImageViewDidTap()
     func didBeginEditing()
     func didEndEditing()
+    func mapImageViewDidTap()
+}
+
+protocol EditMapScreenViewListening: AnyObject {
+    func backEditingLocationButtonDidTap(note: Note)
 }
 
 final class EditNoteScreenViewController: UIViewController {
@@ -30,6 +39,7 @@ final class EditNoteScreenViewController: UIViewController {
         super.viewDidLoad()
         view = editNoteScreenView
         editNoteScreenView.delegate = self
+        editNoteScreenViewModel.delegate = self
         let backButtondImage = UIImage(named: "back")
         self.navigationController?.navigationBar.backIndicatorImage = backButtondImage?.withTintColor(UIColor(red: 0.004, green: 0, blue: 0.208, alpha: 1))
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtondImage
@@ -60,9 +70,15 @@ extension EditNoteScreenViewController {
     
     @objc private func backEditingNoteButtonDidTap() {
         editNoteScreenView.endEditing(true)
-        editNoteScreenViewModel.updateNote(note: editNoteScreenView.note) { [weak self] in
-            self?.navigationController?.popViewController(animated: true)
-        }
+        editNoteScreenViewModel.updateNote(note: editNoteScreenView.note)
+    }
+        
+}
+
+extension EditNoteScreenViewController: EditNoteScreenViewModelListening {
+    
+    func closeViewController() {
+        self.navigationController?.popViewController(animated: true)
     }
     
 }
@@ -83,6 +99,13 @@ extension EditNoteScreenViewController: EditNoteScreenViewListening {
         self.navigationItem.rightBarButtonItem = deleteButton
     }
     
+    func mapImageViewDidTap() {
+        let editMapScreenViewController = EditMapScreenViewController()
+        editMapScreenViewController.note = editNoteScreenView.note
+        editMapScreenViewController.delegate = self
+        self.navigationController?.pushViewController(editMapScreenViewController, animated: true)
+    }
+    
 }
 
 extension EditNoteScreenViewController: SelectPhotoListening {
@@ -92,3 +115,13 @@ extension EditNoteScreenViewController: SelectPhotoListening {
     }
     
 }
+
+extension EditNoteScreenViewController: EditMapScreenViewListening {
+    
+    func backEditingLocationButtonDidTap(note: Note) {
+        editNoteScreenView.note = note
+    }
+    
+}
+
+
