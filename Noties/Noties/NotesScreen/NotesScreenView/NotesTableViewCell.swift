@@ -157,6 +157,8 @@ extension NotesTableViewCell {
         descriptionLabel.text = note.text
         if note.location.description != CLLocationCoordinate2D().description {
             mapImageView.isHidden = false
+        } else {
+            mapImageView.isHidden = true
         }
             
     }
