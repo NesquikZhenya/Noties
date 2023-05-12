@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import MapKit
 
 protocol NotesScreenViewModelListening: AnyObject {
-    func initializeNotesScreenView(notes: [Note], name: String)
+    func initializeNotesScreenView(notes: [Note])
 }
 
 protocol NotesScreenViewListening: NotesTableViewCellListening & AnyObject {
@@ -17,6 +18,8 @@ protocol NotesScreenViewListening: NotesTableViewCellListening & AnyObject {
 }
 
 final class NotesScreenViewController: UIViewController {
+    
+    weak var delegate: LocationTapListening?
 
     private let notesScreenViewModel = NotesScreenViewModel()
     private let notesScreenView = NotesScreenView()
@@ -37,9 +40,9 @@ final class NotesScreenViewController: UIViewController {
 
 extension NotesScreenViewController: NotesScreenViewModelListening {
     
-    func initializeNotesScreenView(notes: [Note], name: String) {
+    func initializeNotesScreenView(notes: [Note]) {
         DispatchQueue.main.async {
-            self.notesScreenView.configureView(notes: notes, name: name)
+            self.notesScreenView.configureView(notes: notes)
         }
     }
     
@@ -60,7 +63,13 @@ extension NotesScreenViewController: NotesScreenViewListening {
     }
     
     func mapNoteViewDidTap(note: Note?) {
-        print(123)
+        if note != nil {
+            if note?.location.description != CLLocationCoordinate2D().description {
+                delegate?.focusOnNote(note: note!)
+                self.tabBarController?.selectedIndex = 1
+            }
+        }
+
     }
     
 }

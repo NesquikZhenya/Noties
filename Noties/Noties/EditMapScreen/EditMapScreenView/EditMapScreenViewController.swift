@@ -30,10 +30,11 @@ final class EditMapScreenViewController: UIViewController {
         CLLocationManager().requestWhenInUseAuthorization()
         CLLocationManager().requestAlwaysAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        
-        if (CLLocationManager.locationServicesEnabled()) {
-            locationManager.requestLocation()
-            locationManager.startUpdatingLocation()
+        DispatchQueue.global().async {
+            if (CLLocationManager.locationServicesEnabled()) {
+                self.locationManager.requestLocation()
+                self.locationManager.startUpdatingLocation()
+            }
         }
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "back")?.withTintColor(UIColor(red: 0.004, green: 0, blue: 0.208, alpha: 1)),
                                                                 style: .done,
@@ -46,7 +47,7 @@ final class EditMapScreenViewController: UIViewController {
 extension EditMapScreenViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let userLocation = locations.first {
+        if locations.first != nil {
             manager.stopUpdatingLocation()
             var coordinates = CLLocationCoordinate2D()
             if note.location.description == CLLocationCoordinate2D().description {
@@ -89,11 +90,10 @@ extension EditMapScreenViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
 
         let dest = view.annotation!.coordinate
-        let span = MKCoordinateSpan.init(latitudeDelta: 0.02, longitudeDelta: 0.02)
+        let span = MKCoordinateSpan.init(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let region = MKCoordinateRegion(center: dest, span: span)
         mapView.setRegion(region, animated: true)
         view.isDraggable = true
-        self.note.location = dest
         
     }
     
@@ -106,6 +106,7 @@ extension EditMapScreenViewController: MKMapViewDelegate {
 extension EditMapScreenViewController {
     
     @objc private func backEditingLocationButtonDidTap() {
+        self.note.location = editMapScreenView.annotations.first?.coordinate ?? CLLocationCoordinate2D()
         self.delegate?.backEditingLocationButtonDidTap(note: self.note)
         self.navigationController?.popViewController(animated: true)
     }

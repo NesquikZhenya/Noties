@@ -7,17 +7,13 @@
 
 import Foundation
 
-protocol NotesDataUpdating {
-    func updateNotesData(notes: [Note])
-}
-
 struct MapsScreenDataManager {
     
     private let notesDataStorage = NotesDataStorage()
     
 }
 
-extension MapsScreenDataManager: NotesDataProviding, NotesDataUpdating {
+extension MapsScreenDataManager: NotesDataProviding {
     
     func provideNotesData(provideCompletion: @escaping ([StoredNote]) -> ()?) {
         
@@ -26,10 +22,6 @@ extension MapsScreenDataManager: NotesDataProviding, NotesDataUpdating {
         }
         
         notesDataStorage.fetchAll(completion: fetchCompletion)
-    }
-    
-    func updateNotesData(notes: [Note]) {
-        notesDataStorage.updateAll(notes: notes)
     }
 
 }

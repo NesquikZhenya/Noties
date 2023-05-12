@@ -59,8 +59,8 @@ extension MapsScreenView: ViewSetuping {
         [
             editButton.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 50),
             editButton.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -70),
-            editButton.widthAnchor.constraint(equalToConstant: 100),
-            editButton.widthAnchor.constraint(equalToConstant: 50)
+            editButton.widthAnchor.constraint(equalToConstant: 80),
+            editButton.heightAnchor.constraint(equalToConstant: 40)
         ].forEach { $0.isActive = true }
     }
     

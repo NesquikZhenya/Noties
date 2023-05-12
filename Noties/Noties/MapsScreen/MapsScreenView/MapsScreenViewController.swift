@@ -17,11 +17,14 @@ protocol MapsScreenViewListening: AnyObject {
     func editButtonDidTap(noteCoordinates: CLLocationCoordinate2D)
 }
 
+protocol LocationTapListening: AnyObject {
+    func focusOnNote(note: Note)
+}
+
 final class MapsScreenViewController: UIViewController {
     
     weak var delegate: MapsScreenViewModelListening?
 
-//    var notes: [Note] = []
     var tappedNote = Note(id: UUID(),
                     title: "No name",
                     text: "Enter the note",
@@ -43,9 +46,11 @@ final class MapsScreenViewController: UIViewController {
         CLLocationManager().requestAlwaysAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
-        if (CLLocationManager.locationServicesEnabled()) {
-            locationManager.requestLocation()
-            locationManager.startUpdatingLocation()
+        DispatchQueue.global().async {
+            if (CLLocationManager.locationServicesEnabled()) {
+                self.locationManager.requestLocation()
+                self.locationManager.startUpdatingLocation()
+            }
         }
         mapsScreenViewModel.delegate = self
         mapsScreenViewModel.getNotes()
@@ -61,7 +66,7 @@ final class MapsScreenViewController: UIViewController {
 extension MapsScreenViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let userLocation = locations.first {
+        if locations.first != nil {
             manager.stopUpdatingLocation()
 
             var tappedCoordinates = CLLocationCoordinate2D()
@@ -97,7 +102,7 @@ extension MapsScreenViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
 
         let dest = view.annotation!.coordinate
-        let span = MKCoordinateSpan.init(latitudeDelta: 0.02, longitudeDelta: 0.02)
+        let span = MKCoordinateSpan.init(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let region = MKCoordinateRegion(center: dest, span: span)
         mapView.setRegion(region, animated: true)
         mapsScreenView.toggleButton()
@@ -114,25 +119,21 @@ extension MapsScreenViewController: MKMapViewDelegate {
 extension MapsScreenViewController: MapsScreenViewModelListening {
     
     func initializeMapsScreenView(notes: [Note]) {
-//        self.notes = notes
         let annotations = mapsScreenView.annotations
         mapsScreenView.removeAnnotations(annotations)
         for note in notes {
-            var coordinates = CLLocationCoordinate2D()
-            if note.location.description == CLLocationCoordinate2D().description {
-                coordinates = CLLocationCoordinate2D(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0)
-            } else {
-                coordinates = note.location
+            if !(note.location.description == CLLocationCoordinate2D().description) {
+                                
+                let date = "\(Calendar.current.component(.day, from: note.date)).\(Calendar.current.component(.month, from: note.date)).\(Calendar.current.component(.year, from: note.date))"
+                
+                let point = MKPointAnnotation()
+                point.coordinate = note.location
+                point.title = note.title
+                point.subtitle = date
+                
+                mapsScreenView.addAnnotation(point)
             }
-            
-            let date = "\(Calendar.current.component(.day, from: note.date)).\(Calendar.current.component(.month, from: note.date)).\(Calendar.current.component(.year, from: note.date))"
-            
-            let point = MKPointAnnotation()
-            point.coordinate = coordinates
-            point.title = note.title
-            point.subtitle = date
-            
-            mapsScreenView.addAnnotation(point)
+
         }
         
     }
@@ -149,6 +150,17 @@ extension MapsScreenViewController: MapsScreenViewListening {
     
     func editButtonDidTap(noteCoordinates: CLLocationCoordinate2D) {
         self.mapsScreenViewModel.getNoteByCoordinates(coordinate: noteCoordinates)
+    }
+    
+}
+
+extension MapsScreenViewController: LocationTapListening {
+    
+    func focusOnNote(note: Note) {
+        let dest = note.location
+        let span = MKCoordinateSpan.init(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: dest, span: span)
+        self.mapsScreenView.setRegion(region, animated: true)
     }
     
 }

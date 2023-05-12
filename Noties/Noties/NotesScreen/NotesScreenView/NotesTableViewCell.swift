@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 
 protocol NotesTableViewCellListening: AnyObject {
     func mapNoteViewDidTap(note: Note?)
@@ -62,6 +63,7 @@ final class NotesTableViewCell: UITableViewCell {
         imageView.image = UIImage(named: "map")
         imageView.tintColor = UIColor(red: 0.004, green: 0, blue: 0.208, alpha: 1)
         imageView.isUserInteractionEnabled = true
+        imageView.isHidden = true
         let gesture = UITapGestureRecognizer(target: self, action: #selector(mapNoteViewDidTap))
         imageView.addGestureRecognizer(gesture)
         return imageView
@@ -153,6 +155,10 @@ extension NotesTableViewCell {
         photoImageView.image = note.picture
         titleLabel.text = note.title
         descriptionLabel.text = note.text
+        if note.location.description != CLLocationCoordinate2D().description {
+            mapImageView.isHidden = false
+        }
+            
     }
 
 }

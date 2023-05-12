@@ -66,9 +66,12 @@ final class NotiesTabBarController: UITabBarController {
         }
     
     private func setupViewControllers() {
+        let notesScreenViewController = NotesScreenViewController()
+        let mapsScreenViewController = MapsScreenViewController()
+        notesScreenViewController.delegate = mapsScreenViewController
           viewControllers = [
-            configureViewController(for: NotesScreenViewController(), title: "Notes", image: UIImage(named: "notes")),
-            configureViewController(for: MapsScreenViewController(), title: "Map", image: UIImage(named: "map"))
+            configureViewController(for: notesScreenViewController, title: "Notes", image: UIImage(named: "notes")),
+            configureViewController(for: mapsScreenViewController, title: "Map", image: UIImage(named: "map"))
           ]
       }
     

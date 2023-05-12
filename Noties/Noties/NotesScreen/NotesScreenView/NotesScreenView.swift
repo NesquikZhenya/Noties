@@ -144,13 +144,15 @@ extension NotesScreenView: ViewSetuping {
 
 extension NotesScreenView {
     
-    func configureView(notes: [Note], name: String) {
-        titleLabel.text = "Here's your notes \(name)"
+    func configureView(notes: [Note]) {
+        titleLabel.text = "Here's your notes \(UserDefaults.standard.object(forKey: "currentUser") ?? "")"
         if notes.isEmpty {
             notesTableView.isHidden = true
             noNotesStackView.isHidden = false
         } else {
             self.notes = notes
+            notesTableView.isHidden = false
+            noNotesStackView.isHidden = true
             notesTableView.reloadData()
         }
     }

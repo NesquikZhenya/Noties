@@ -32,7 +32,7 @@ extension NotesScreenViewModel: NotesDataManaging {
     func getNotes() {
         
         let provideNotesCompletion = { (storedNotes: [StoredNote]) in
-            self.delegate?.initializeNotesScreenView(notes: transformed(storedNotes: storedNotes), name: storedNotes[0].username ?? "")
+            self.delegate?.initializeNotesScreenView(notes: transformed(storedNotes: storedNotes))
         }
         
         notesScreenDataManager.provideNotesData(provideCompletion: provideNotesCompletion)

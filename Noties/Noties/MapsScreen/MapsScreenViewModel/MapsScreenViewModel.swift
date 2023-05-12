@@ -13,9 +13,9 @@ import MapKit
 final class MapsScreenViewModel {
     
     weak var delegate: MapsScreenViewModelListening?
-    private var mapsScreenDataManager: NotesDataProviding & NotesDataUpdating
+    private var mapsScreenDataManager: NotesDataProviding
 
-    init(mapsScreenDataManager: NotesDataProviding & NotesDataUpdating = MapsScreenDataManager()) {
+    init(mapsScreenDataManager: NotesDataProviding = MapsScreenDataManager()) {
         self.mapsScreenDataManager = mapsScreenDataManager
     }
     
@@ -73,10 +73,5 @@ extension MapsScreenViewModel: NotesDataManaging {
         }
         
     }
-    
-    func updateNotes(notes: [Note]) {
-        mapsScreenDataManager.updateNotesData(notes: notes)
-    }
  
-
 }
